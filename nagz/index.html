@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nagz — AI-Powered Family Reminders</title>
+    <meta name="description" content="Smart family reminders with AI mediation, escalation, and gamification. Keep everyone on track.">
+    <meta name="apple-itunes-app" content="app-id=6759530926">
+    <link rel="apple-touch-icon" href="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/app-icon/nagz.png/120x120bb.jpg">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --bg: #fafafa;
+            --card: #ffffff;
+            --text: #1d1d1f;
+            --muted: #86868b;
+            --accent: #6c3cff;
+            --accent-light: #ede8ff;
+            --border: #e8e8ed;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, sans-serif;
+            color: var(--text);
+            background: var(--bg);
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Hero */
+        .hero {
+            text-align: center;
+            padding: 80px 24px 48px;
+            background: linear-gradient(180deg, #f0ecff 0%, var(--bg) 100%);
+        }
+        .hero-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 18px;
+            background: var(--accent);
+            color: white;
+            font-size: 40px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+            box-shadow: 0 8px 24px rgba(108, 60, 255, 0.25);
+        }
+        .hero h1 {
+            font-size: 52px;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 8px;
+        }
+        .hero .tagline {
+            font-size: 22px;
+            color: var(--muted);
+            margin-bottom: 16px;
+        }
+        .hero .subtitle {
+            font-size: 17px;
+            color: #424245;
+            max-width: 520px;
+            margin: 0 auto 32px;
+        }
+        .app-store-badge {
+            display: inline-block;
+            transition: transform 0.15s;
+        }
+        .app-store-badge:hover { transform: scale(1.04); }
+        .app-store-badge img {
+            height: 54px;
+        }
+
+        /* Screenshot carousel */
+        .screenshots {
+            padding: 48px 24px 64px;
+            background: linear-gradient(135deg, #1a1a2e 0%, #2d1b69 50%, #1a1a2e 100%);
+        }
+        .screenshots h2 {
+            text-align: center;
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 32px;
+            letter-spacing: -0.01em;
+            color: #ffffff;
+        }
+        .screenshot-strip {
+            display: flex;
+            gap: 24px;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            padding: 8px 0 24px;
+            -webkit-overflow-scrolling: touch;
+            justify-content: center;
+        }
+        .screenshot-strip::-webkit-scrollbar { display: none; }
+        .screenshot-item {
+            scroll-snap-align: center;
+            flex-shrink: 0;
+            text-align: center;
+        }
+        .screenshot-item img {
+            height: 520px;
+            border-radius: 32px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), 0 0 0 3px rgba(255,255,255,0.1);
+        }
+        .screenshot-item .caption {
+            margin-top: 14px;
+            font-size: 14px;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* Features */
+        .features-section {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 0 24px 72px;
+        }
+        .features-section h2 {
+            text-align: center;
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 40px;
+            letter-spacing: -0.01em;
+        }
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+        .feature-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 24px;
+            transition: box-shadow 0.2s;
+        }
+        .feature-card:hover {
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+        }
+        .feature-card .icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            margin-bottom: 14px;
+        }
+        .feature-card h3 { font-size: 17px; margin-bottom: 6px; }
+        .feature-card p { font-size: 14px; color: var(--muted); line-height: 1.45; }
+
+        .icon-chat { background: #e8f0fe; }
+        .icon-connect { background: #fce8f0; }
+        .icon-remind { background: #fff3e0; }
+        .icon-game { background: #e8f5e9; }
+        .icon-safe { background: #ede8ff; }
+        .icon-privacy { background: #e0f7fa; }
+
+        /* How it works */
+        .how-section {
+            background: var(--card);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            padding: 72px 24px;
+        }
+        .how-section h2 {
+            text-align: center;
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 48px;
+        }
+        .steps {
+            display: flex;
+            max-width: 800px;
+            margin: 0 auto;
+            gap: 32px;
+            justify-content: center;
+        }
+        .step {
+            text-align: center;
+            flex: 1;
+            max-width: 220px;
+        }
+        .step-number {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: var(--accent);
+            color: white;
+            font-size: 20px;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 16px;
+        }
+        .step h3 { font-size: 17px; margin-bottom: 6px; }
+        .step p { font-size: 14px; color: var(--muted); }
+
+        /* CTA */
+        .cta-section {
+            text-align: center;
+            padding: 72px 24px;
+        }
+        .cta-section h2 {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+        .cta-section p {
+            font-size: 17px;
+            color: var(--muted);
+            margin-bottom: 28px;
+        }
+        .badge-row {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .privacy-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: #e8f5e9;
+            color: #1b5e20;
+            font-size: 14px;
+            font-weight: 600;
+            padding: 8px 16px;
+            border-radius: 20px;
+        }
+
+        /* Footer */
+        footer {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 32px 24px;
+            text-align: center;
+            color: var(--muted);
+            font-size: 14px;
+        }
+        footer a { color: var(--accent); text-decoration: none; }
+        footer a:hover { text-decoration: underline; }
+        .footer-links { display: flex; gap: 24px; justify-content: center; margin-bottom: 12px; }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 38px; }
+            .features-grid { grid-template-columns: 1fr; }
+            .steps { flex-direction: column; align-items: center; }
+            .screenshot-item img { height: 420px; }
+        }
+        @media (max-width: 480px) {
+            .hero { padding: 56px 16px 32px; }
+            .screenshot-item img { height: 360px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-icon">🔔</div>
+        <h1>Nagz</h1>
+        <p class="tagline">AI-Powered Family Reminders</p>
+        <p class="subtitle">Assign tasks, negotiate timing, and track accountability — all powered by on-device AI. No data leaves your phone.</p>
+        <a class="app-store-badge" href="https://apps.apple.com/app/nagz/id6759530926">
+            <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store">
+        </a>
+    </section>
+
+    <!-- Screenshots -->
+    <section class="screenshots">
+        <h2>See it in action</h2>
+        <div class="screenshot-strip">
+            <div class="screenshot-item">
+                <img src="screenshots/01_NagList.png" alt="Nag list showing tasks from Sam and Jamie" loading="lazy">
+                <div class="caption">Your task list</div>
+            </div>
+            <div class="screenshot-item">
+                <img src="screenshots/02_NagDetail.png" alt="Task detail with AI insights and completion likelihood" loading="lazy">
+                <div class="caption">AI-powered insights</div>
+            </div>
+            <div class="screenshot-item">
+                <img src="screenshots/03_DayPlanner.png" alt="Day planner with hourly schedule view" loading="lazy">
+                <div class="caption">Day planner</div>
+            </div>
+            <div class="screenshot-item">
+                <img src="screenshots/04_CreateNag.png" alt="Create a new nag with quick time buttons" loading="lazy">
+                <div class="caption">Quick nag creation</div>
+            </div>
+            <div class="screenshot-item">
+                <img src="screenshots/05_Connections.png" alt="Connections with stats for each person" loading="lazy">
+                <div class="caption">Connection stats</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="features-section">
+        <h2>Everything you need</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="icon icon-chat">💬</div>
+                <h3>AI Chat</h3>
+                <p>Create and manage tasks by chatting naturally. Choose from 6 AI personalities. Runs entirely on-device.</p>
+            </div>
+            <div class="feature-card">
+                <div class="icon icon-connect">👥</div>
+                <h3>Connections</h3>
+                <p>Nag friends and family. Invite by email or QR code. Track completion stats per person.</p>
+            </div>
+            <div class="feature-card">
+                <div class="icon icon-remind">🔔</div>
+                <h3>Smart Escalation</h3>
+                <p>Five-phase reminders that adapt. Quiet hours, daily caps, and automatic follow-ups so you don't repeat yourself.</p>
+            </div>
+            <div class="feature-card">
+                <div class="icon icon-game">🏆</div>
+                <h3>Gamification</h3>
+                <p>Points, streaks, badges, and a leaderboard. Turn chores into a friendly competition.</p>
+            </div>
+            <div class="feature-card">
+                <div class="icon icon-safe">🛡️</div>
+                <h3>Family Safety</h3>
+                <p>COPPA-compliant child accounts, block and report tools, organizer controls.</p>
+            </div>
+            <div class="feature-card">
+                <div class="icon icon-privacy">🔒</div>
+                <h3>100% Private</h3>
+                <p>All AI on your iPhone. No ads, no tracking, no external services. Your data stays yours.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- How it works -->
+    <section class="how-section">
+        <h2>How it works</h2>
+        <div class="steps">
+            <div class="step">
+                <div class="step-number">1</div>
+                <h3>Assign</h3>
+                <p>Create a task via voice, text, or AI chat. Pick who it's for and when it's due.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">2</div>
+                <h3>Negotiate</h3>
+                <p>The doer commits to when they'll handle it. Smart reminders do the follow-up.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">3</div>
+                <h3>Track</h3>
+                <p>See who's on track, who's overdue, and who earned the most points this week.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+        <h2>Stop repeating yourself</h2>
+        <p>Free. No ads. No tracking. Works on iPhone and iPad.</p>
+        <div class="badge-row">
+            <a class="app-store-badge" href="https://apps.apple.com/app/nagz/id6759530926">
+                <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store">
+            </a>
+            <span class="privacy-pill">🔒 100% On-Device AI</span>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-links">
+            <a href="privacy-policy.html">Privacy Policy</a>
+            <a href="terms-of-service.html">Terms of Service</a>
+            <a href="mailto:support@nagz.app">Support</a>
+        </div>
+        <p>&copy; 2026 Bill Donner. Made with care for families.</p>
+    </footer>
+
+</body>
+</html>

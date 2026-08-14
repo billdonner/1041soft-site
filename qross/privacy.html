@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DoubleQross - Privacy Policy</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, sans-serif; color: #333; line-height: 1.6; max-width: 720px; margin: 0 auto; padding: 24px; }
+  h1 { font-size: 2em; margin-bottom: 8px; }
+  h2 { font-size: 1.3em; margin-top: 32px; margin-bottom: 8px; color: #1a1a2e; }
+  h3 { font-size: 1.1em; margin-top: 16px; margin-bottom: 4px; color: #444; }
+  p, li { margin-bottom: 8px; }
+  ul { padding-left: 24px; }
+  table { border-collapse: collapse; width: 100%; margin: 12px 0; }
+  th, td { border: 1px solid #ddd; padding: 8px 12px; text-align: left; vertical-align: top; }
+  th { background: #f8f9fa; }
+  .subtitle { color: #666; font-size: 1.1em; margin-bottom: 24px; }
+  .updated { color: #888; font-size: 0.9em; margin-bottom: 24px; }
+  footer { margin-top: 48px; padding-top: 16px; border-top: 1px solid #ddd; font-size: 0.85em; color: #888; }
+</style>
+</head>
+<body>
+
+<h1>DoubleQross</h1>
+<p class="subtitle">Privacy Policy</p>
+<p class="updated">Last updated: April 27, 2026</p>
+
+<h2>1. Summary</h2>
+<ul>
+  <li>We do <strong>not</strong> collect your name, email, address, phone number, contacts, photos, location, or device fingerprint.</li>
+  <li>We do <strong>not</strong> show ads. We do <strong>not</strong> sell or share data with advertisers or analytics brokers.</li>
+  <li>The app generates a random anonymous identifier on your device the first time you launch it. It is used only so the trivia server (cardzerver) does not show you the same questions twice and so daily-challenge leaderboards can rank scores. It is not linked to your real identity.</li>
+</ul>
+
+<h2>2. What the app sends to our server</h2>
+<p>DoubleQross talks to a single server we operate at <code>https://bd-cardzerver.fly.dev</code>. The data sent is:</p>
+<table>
+<tr><th>When</th><th>What is sent</th><th>Why</th></tr>
+<tr><td>First launch</td><td>A random UUID generated on your device (<code>qross_device_id</code>)</td><td>Server returns a <code>qross_player_id</code> so the same device can resume</td></tr>
+<tr><td>Fetching questions</td><td>Your <code>qross_player_id</code>, the topic IDs you selected, and a count</td><td>So the server can avoid serving questions you have already seen</td></tr>
+<tr><td>Reporting a question</td><td>Your <code>qross_player_id</code>, the question ID, and a short reason ("inaccurate", "unclear", etc.)</td><td>So we can review and remove bad questions</td></tr>
+<tr><td>Submitting a daily-challenge score</td><td>Your <code>qross_player_id</code>, today's date, your score, moves, wrongs, and hint count</td><td>So the daily leaderboard can rank you</td></tr>
+<tr><td>Sharing or accepting a challenge</td><td>A short alphanumeric share code</td><td>So friends can play the same board you played</td></tr>
+</table>
+<p>We never send your name, email, contacts, location, or any other personal information. The <code>qross_device_id</code> is a random number &mdash; it is not derived from any hardware identifier and cannot re-identify you.</p>
+
+<h2>3. What the app stores on your device</h2>
+<ul>
+  <li>The random <code>qross_device_id</code> (a UUID) and <code>qross_player_id</code> (the server's reply), in iOS user preferences.</li>
+  <li>Your last-played and last-won dates, so the streak counters can advance.</li>
+  <li>Your last 200 game results (board, path, score) so you can review them.</li>
+  <li>Your current achievements, your selected topics, and your settings.</li>
+  <li>A copy of the trivia question library (about 56,000 questions) in a local SQLite database, so the game works offline.</li>
+</ul>
+<p>All of this lives on your device. Deleting the app removes it.</p>
+
+<h2>4. Apple Intelligence</h2>
+<p>If your device supports Apple Intelligence, DoubleQross uses Apple's on-device language model (Foundation Models) to generate move suggestions, hints, explanations, and post-game analysis. <strong>None of this leaves your device.</strong> On devices without Apple Intelligence, the app falls back to deterministic suggestions and skips AI-generated text entirely.</p>
+
+<h2>5. Children</h2>
+<p>DoubleQross is rated for general audiences. We do not knowingly collect any data from children under 13. Because we do not collect names, emails, or profiles in the first place, COPPA does not generally apply. If you believe we have inadvertently collected such information, contact us and we will delete it.</p>
+
+<h2>6. Tracking</h2>
+<p>DoubleQross does not use Apple's App Tracking Transparency framework because we do not track you across other apps and websites. We never link your <code>qross_player_id</code> to data from any other source.</p>
+
+<h2>7. Third parties</h2>
+<p>DoubleQross does not embed third-party SDKs that collect data. We use:</p>
+<ul>
+  <li><strong>Apple FoundationModels</strong> &mdash; on-device LLM, no network</li>
+  <li><strong>GRDB.swift</strong> &mdash; open-source SQLite library, no network</li>
+</ul>
+<p>Our backend (cardzerver) is hosted on Fly.io. Fly.io can see network metadata (IP address, user agent) for technical reasons; it does not receive any of the personal data listed above.</p>
+
+<h2>8. Your choices</h2>
+<ul>
+  <li>You can delete your local data by deleting the app.</li>
+  <li>You can ask us to delete your <code>qross_player_id</code> and any associated leaderboard records by emailing the address below.</li>
+  <li>You can stop the app from contacting our server by turning off network access for DoubleQross in iOS Settings &mdash; gameplay still works offline using the bundled question library.</li>
+</ul>
+
+<h2>9. Changes to this policy</h2>
+<p>If we change this policy we will update the "Last updated" date at the top and, for material changes, surface a notice in the app on the next launch.</p>
+
+<h2>10. Contact</h2>
+<p>Email: <a href="mailto:midnightrambler@gmail.com">midnightrambler@gmail.com</a></p>
+
+<footer>
+<p>DoubleQross &copy; 2026 Bill Donner. All rights reserved.</p>
+</footer>
+
+</body>
+</html>

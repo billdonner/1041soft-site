@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>workinOn Board API — Integration Guide</title>
+  <style>
+    :root {
+      --accent: #5B7FD4;
+      --accent-light: #EEF2FB;
+      --text: #1a1a1a;
+      --secondary: #666;
+      --border: #e0e0e0;
+      --code-bg: #f6f8fa;
+      --success: #2d8a4e;
+      --warning: #b45309;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      color: var(--text);
+      background: #fff;
+    }
+    header {
+      background: var(--accent);
+      color: #fff;
+      padding: 48px 24px 40px;
+      text-align: center;
+    }
+    header h1 { font-size: 2.2rem; font-weight: 700; letter-spacing: -0.5px; }
+    header p { margin-top: 10px; font-size: 1.1rem; opacity: 0.88; }
+    .badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.2);
+      border-radius: 20px;
+      padding: 3px 12px;
+      font-size: 0.8rem;
+      margin-top: 12px;
+      letter-spacing: 0.5px;
+    }
+    main { max-width: 820px; margin: 0 auto; padding: 40px 24px 80px; }
+    h2 {
+      font-size: 1.5rem;
+      margin: 48px 0 16px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid var(--accent-light);
+      color: var(--accent);
+    }
+    h3 { font-size: 1.1rem; margin: 28px 0 10px; font-weight: 600; }
+    p { margin: 12px 0; color: #333; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* Code */
+    pre {
+      background: var(--code-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px 18px;
+      overflow-x: auto;
+      font-size: 0.88rem;
+      line-height: 1.6;
+      margin: 14px 0;
+    }
+    code {
+      font-family: "SF Mono", "Fira Code", "Consolas", monospace;
+      font-size: 0.88em;
+      background: var(--code-bg);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 1px 5px;
+    }
+    pre code { background: none; border: none; padding: 0; font-size: inherit; }
+
+    /* Tables */
+    table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 0.92rem; }
+    th {
+      background: var(--accent-light);
+      color: var(--accent);
+      text-align: left;
+      padding: 10px 14px;
+      font-weight: 600;
+      border-bottom: 2px solid var(--accent);
+    }
+    td { padding: 9px 14px; border-bottom: 1px solid var(--border); vertical-align: top; }
+    tr:last-child td { border-bottom: none; }
+    tr:hover td { background: #fafafa; }
+
+    /* Callouts */
+    .callout {
+      border-left: 4px solid var(--accent);
+      background: var(--accent-light);
+      border-radius: 0 8px 8px 0;
+      padding: 14px 18px;
+      margin: 16px 0;
+      font-size: 0.95rem;
+    }
+    .callout.warning { border-color: var(--warning); background: #fef9ec; }
+    .callout.success { border-color: var(--success); background: #f0faf4; }
+    .callout strong { display: block; margin-bottom: 4px; }
+
+    /* Pills */
+    .pill {
+      display: inline-block;
+      padding: 2px 10px;
+      border-radius: 12px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.3px;
+      margin-right: 4px;
+    }
+    .pill-url  { background: #e8f0fe; color: #1a56db; }
+    .pill-push { background: #f0faf4; color: var(--success); }
+    .pill-notif { background: #fef9ec; color: var(--warning); }
+
+    /* TOC */
+    .toc {
+      background: var(--code-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 20px 24px;
+      margin: 28px 0;
+    }
+    .toc h4 { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; color: var(--secondary); margin-bottom: 10px; }
+    .toc ol { padding-left: 20px; }
+    .toc li { margin: 5px 0; font-size: 0.95rem; }
+
+    /* Steps */
+    .steps { counter-reset: step; }
+    .step {
+      counter-increment: step;
+      display: flex;
+      gap: 16px;
+      margin: 18px 0;
+      align-items: flex-start;
+    }
+    .step-num {
+      flex-shrink: 0;
+      width: 28px; height: 28px;
+      background: var(--accent);
+      color: #fff;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.8rem; font-weight: 700;
+    }
+    .step-body { flex: 1; padding-top: 4px; }
+
+    footer {
+      text-align: center;
+      padding: 32px 24px;
+      border-top: 1px solid var(--border);
+      font-size: 0.85rem;
+      color: var(--secondary);
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>workinOn Board API</h1>
+  <p>Let any app on the device post to your personal status board.</p>
+  <span class="badge">Build 44 · iOS 26+</span>
+</header>
+
+<main>
+
+  <div class="toc">
+    <h4>Contents</h4>
+    <ol>
+      <li><a href="#overview">Overview</a></li>
+      <li><a href="#url-scheme">URL Scheme Commands</a></li>
+      <li><a href="#swift-helper">Swift Helper — WorkinOnPoster</a></li>
+      <li><a href="#notifications">Notifications → List Entries</a></li>
+      <li><a href="#notification-helper">Swift Helper — WorkinOnNotificationHelper</a></li>
+      <li><a href="#remote-push">Remote Push (APNs)</a></li>
+      <li><a href="#shortcuts">Shortcuts &amp; Automation</a></li>
+      <li><a href="#patterns">Common Patterns</a></li>
+    </ol>
+  </div>
+
+  <!-- OVERVIEW -->
+  <h2 id="overview">1. Overview</h2>
+  <p>
+    <strong>workinOn</strong> maintains a short, ordered list of things you're working on — always visible on your home screen via the Large widget. Beyond personal use, it acts as a <strong>personal status board</strong>: any iOS app on the same device can post a named status slot, update it, and remove it.
+  </p>
+  <p>There are three integration paths, each suited to different callers:</p>
+  <table>
+    <tr>
+      <th>Path</th>
+      <th>Best for</th>
+      <th>Delivers when</th>
+    </tr>
+    <tr>
+      <td><span class="pill pill-url">URL scheme</span></td>
+      <td>iOS apps, Shortcuts</td>
+      <td>App is foregrounded to handle the URL</td>
+    </tr>
+    <tr>
+      <td><span class="pill pill-notif">Local notification</span></td>
+      <td>iOS apps, time-based triggers</td>
+      <td>Notification fires (silent) or user taps it</td>
+    </tr>
+    <tr>
+      <td><span class="pill pill-push">Remote push (APNs)</span></td>
+      <td>Servers, background delivery</td>
+      <td>Silently, in the background, any time</td>
+    </tr>
+  </table>
+
+  <div class="callout">
+    <strong>Requirement</strong>
+    workinOn must be installed on the device. The app handles all three paths — no backend required.
+  </div>
+
+  <!-- URL SCHEME -->
+  <h2 id="url-scheme">2. URL Scheme Commands</h2>
+  <p>All commands use the <code>workinon://</code> scheme. All text values must be URL-encoded.</p>
+
+  <table>
+    <tr><th>Command</th><th>URL</th><th>Effect</th></tr>
+    <tr>
+      <td>Open</td>
+      <td><code>workinon://open</code></td>
+      <td>Bring workinOn to the foreground</td>
+    </tr>
+    <tr>
+      <td>Add item</td>
+      <td><code>workinon://add?text=Buy%20milk</code></td>
+      <td>Append a manual list item</td>
+    </tr>
+    <tr>
+      <td>Post status</td>
+      <td><code>workinon://post?key=myapp&amp;text=Running</code></td>
+      <td>Upsert a keyed status item (creates or replaces)</td>
+    </tr>
+    <tr>
+      <td>Post with photo</td>
+      <td><code>workinon://post?key=myapp&amp;text=Done&amp;photoID=&lt;id&gt;</code></td>
+      <td>Upsert with a photo from the library</td>
+    </tr>
+    <tr>
+      <td>Remove status</td>
+      <td><code>workinon://remove?key=myapp</code></td>
+      <td>Remove a keyed status item</td>
+    </tr>
+    <tr>
+      <td>Clear all</td>
+      <td><code>workinon://clear</code></td>
+      <td>Remove all items (use carefully)</td>
+    </tr>
+  </table>
+
+  <h3>Key semantics</h3>
+  <p>
+    A <em>key</em> identifies your app's slot on the board. Use your app name or bundle ID (e.g. <code>nagz</code>, <code>com.myapp.status</code>). Keys are case-sensitive. Posting to an existing key <strong>replaces</strong> the item in place — no duplicates. Status items appear pinned at the top of the list.
+  </p>
+
+  <h3>Opening from Swift</h3>
+  <pre><code>let url = URL(string: "workinon://post?key=myapp&text=Server%20running")!
+UIApplication.shared.open(url)</code></pre>
+
+  <!-- SWIFT HELPER -->
+  <h2 id="swift-helper">3. Swift Helper — WorkinOnPoster</h2>
+  <p>
+    Copy <code>Shared/WorkinOnPoster.swift</code> into your iOS app. No dependencies,
+    no configuration. Suitable for: <strong>nagz-ios, qross, famster, obo-ios,
+    alities-mobile, pickledballs, workinOn itself</strong>.
+  </p>
+  <div class="callout warning">
+    <strong>iOS apps only</strong>
+    WorkinOnPoster uses <code>UIApplication.shared.open()</code>. It cannot be used in servers or background extensions that lack a UIApplication. Servers should use the Remote Push path instead.
+  </div>
+
+  <pre><code>// Post a text status
+WorkinOnPoster.post(key: "nagz", text: "✓ API up · port 9800")
+
+// Post with a photo from the library
+WorkinOnPoster.post(key: "nagz", text: "Dashboard", photoID: asset.localIdentifier)
+
+// Remove your slot
+WorkinOnPoster.remove(key: "nagz")
+
+// Add a plain manual item (no key)
+WorkinOnPoster.add(text: "Fix the auth bug")</code></pre>
+
+  <h3>Posting images</h3>
+  <p>
+    workinOn stores photos by <code>PHAsset.localIdentifier</code> — it reads from the
+    photo library, no file copying needed. To post an image your app generated:
+  </p>
+  <pre><code>PHPhotoLibrary.shared().performChanges {
+    let req = PHAssetChangeRequest.creationRequestForAsset(from: myUIImage)
+    let id = req.placeholderForCreatedAsset?.localIdentifier
+    DispatchQueue.main.async {
+        WorkinOnPoster.post(key: "myapp", text: "Chart updated", photoID: id)
+    }
+}</code></pre>
+
+  <!-- NOTIFICATIONS -->
+  <h2 id="notifications">4. Notifications → List Entries</h2>
+  <p>
+    Any local or remote notification can carry a <code>workinon_url</code> key in its
+    <code>userInfo</code> payload. workinOn processes this URL when the notification
+    is delivered (silent) or when the user taps it (alert).
+  </p>
+
+  <h3>Payload format</h3>
+  <pre><code>{
+  "aps": {
+    "alert": { "title": "workinOn", "body": "Tap to add to your list" },
+    "sound": "default"
+  },
+  "workinon_url": "workinon://add?text=Standup%20notes"
+}</code></pre>
+
+  <p>The <code>workinon_url</code> value is any valid <code>workinon://</code> URL from the table above. All commands work: <code>add</code>, <code>post</code>, <code>remove</code>, <code>clear</code>.</p>
+
+  <h3>Behavior by delivery context</h3>
+  <table>
+    <tr><th>Context</th><th>Alert shown?</th><th>Command runs</th></tr>
+    <tr>
+      <td>App in foreground, <code>workinon_url</code> present</td>
+      <td>No — silently executed</td>
+      <td>Immediately on delivery</td>
+    </tr>
+    <tr>
+      <td>App in background, alert notification</td>
+      <td>Yes</td>
+      <td>When user taps notification</td>
+    </tr>
+    <tr>
+      <td>Silent push (<code>content-available: 1</code>)</td>
+      <td>No</td>
+      <td>Immediately in background</td>
+    </tr>
+    <tr>
+      <td>App not running, alert notification</td>
+      <td>Yes</td>
+      <td>When user taps notification, launches app</td>
+    </tr>
+  </table>
+
+  <!-- NOTIFICATION HELPER -->
+  <h2 id="notification-helper">5. Swift Helper — WorkinOnNotificationHelper</h2>
+  <p>
+    Copy <code>Shared/WorkinOnNotificationHelper.swift</code> into your iOS app. Requires
+    <code>UNUserNotificationCenter</code> permission to be granted.
+  </p>
+
+  <pre><code>// Add an item when the user taps a notification (5 minutes from now)
+WorkinOnNotificationHelper.scheduleAdd(
+    text: "Standup notes",
+    title: "workinOn",
+    body: "Tap to add standup to your list",
+    at: Date().addingTimeInterval(300)
+)
+
+// Post a silent heartbeat every 5 minutes
+WorkinOnNotificationHelper.schedulePost(
+    key: "myserver",
+    text: "myServer: running",
+    silent: true,
+    repeating: .everyFiveMinutes
+)
+
+// Post daily status at 9am
+WorkinOnNotificationHelper.schedulePost(
+    key: "myapp.daily",
+    text: "Daily check-in",
+    at: Calendar.current.date(bySettingHour: 9, minute: 0, second: 0, of: Date())!,
+    repeating: .daily
+)
+
+// Remove status silently at 6pm
+WorkinOnNotificationHelper.scheduleRemove(
+    key: "myapp.office",
+    silent: true,
+    at: Calendar.current.date(bySettingHour: 18, minute: 0, second: 0, of: Date())!
+)
+
+// Cancel a scheduled notification
+WorkinOnNotificationHelper.cancel(identifier: "my-notification-id")</code></pre>
+
+  <!-- REMOTE PUSH -->
+  <h2 id="remote-push">6. Remote Push (APNs)</h2>
+  <p>
+    Servers can deliver workinOn commands silently via APNs. workinOn processes
+    the <code>workinon_url</code> key from the push payload immediately in the background
+    — no user interaction required.
+  </p>
+
+  <div class="callout success">
+    <strong>Best path for servers</strong>
+    This is the recommended path for nagzerver, cardzerver, and any other backend that needs to update the board without user interaction.
+  </div>
+
+  <h3>APNs payload</h3>
+  <pre><code>{
+  "aps": {
+    "content-available": 1
+  },
+  "workinon_url": "workinon://post?key=nagzerver&text=%E2%9C%93%20API%20up%20%C2%B7%209800"
+}</code></pre>
+
+  <h3>Python example (nagzerver)</h3>
+  <pre><code>import urllib.parse
+
+def post_workinon_status(key: str, text: str) -> dict:
+    """Build APNs payload to post a workinOn status item."""
+    encoded_text = urllib.parse.quote(text)
+    url = f"workinon://post?key={key}&text={encoded_text}"
+    return {
+        "aps": {"content-available": 1},
+        "workinon_url": url
+    }
+
+# Usage:
+payload = post_workinon_status("nagzerver", "✓ API up · port 9800")
+await send_apns_push(device_token, payload, bundle_id="com.workinon.app")</code></pre>
+
+  <h3>APNs push headers</h3>
+  <table>
+    <tr><th>Header</th><th>Value</th></tr>
+    <tr><td><code>apns-push-type</code></td><td><code>background</code></td></tr>
+    <tr><td><code>apns-topic</code></td><td><code>com.workinon.app</code></td></tr>
+    <tr><td><code>apns-priority</code></td><td><code>5</code> (low priority for silent)</td></tr>
+  </table>
+
+  <!-- SHORTCUTS -->
+  <h2 id="shortcuts">7. Shortcuts &amp; Automation</h2>
+  <p>
+    workinOn's URL scheme works natively in the <strong>Shortcuts</strong> app — no
+    configuration required. Use the <strong>Open URL</strong> action.
+  </p>
+
+  <h3>Example: "Add to workinOn"</h3>
+  <div class="steps">
+    <div class="step"><div class="step-num">1</div><div class="step-body">Add action: <strong>Ask for Input</strong> → prompt "What are you working on?" → store in <em>Input</em></div></div>
+    <div class="step"><div class="step-num">2</div><div class="step-body">Add action: <strong>URL Encode</strong> → input: <em>Input</em> → store in <em>Encoded</em></div></div>
+    <div class="step"><div class="step-num">3</div><div class="step-body">Add action: <strong>Open URL</strong> → <code>workinon://add?text=<em>[Encoded]</em></code></div></div>
+  </div>
+  <p>Add this shortcut to Siri: <em>"Hey Siri, add to workinOn"</em></p>
+
+  <h3>Example: "Post my status"</h3>
+  <div class="steps">
+    <div class="step"><div class="step-num">1</div><div class="step-body">Add action: <strong>Open URL</strong> → <code>workinon://post?key=mystatus&amp;text=In%20a%20meeting</code></div></div>
+  </div>
+
+  <h3>Personal Automations</h3>
+  <p>In the <strong>Shortcuts</strong> app, go to <strong>Automation → New Automation</strong>:</p>
+  <table>
+    <tr><th>Trigger</th><th>Action URL</th><th>Effect</th></tr>
+    <tr>
+      <td>Time of day · 9am · Daily</td>
+      <td><code>workinon://post?key=morning&amp;text=Morning%20check-in</code></td>
+      <td>Post daily reminder to board</td>
+    </tr>
+    <tr>
+      <td>App opened · Xcode</td>
+      <td><code>workinon://post?key=coding&amp;text=In%20Xcode</code></td>
+      <td>Post when you start coding</td>
+    </tr>
+    <tr>
+      <td>App closed · Xcode</td>
+      <td><code>workinon://remove?key=coding</code></td>
+      <td>Remove when you stop coding</td>
+    </tr>
+    <tr>
+      <td>Arrive at location</td>
+      <td><code>workinon://post?key=location&amp;text=At%20the%20office</code></td>
+      <td>Post your location status</td>
+    </tr>
+    <tr>
+      <td>Leave location</td>
+      <td><code>workinon://remove?key=location</code></td>
+      <td>Clear when you leave</td>
+    </tr>
+  </table>
+
+  <!-- PATTERNS -->
+  <h2 id="patterns">8. Common Patterns</h2>
+
+  <h3>Server heartbeat (via APNs)</h3>
+  <pre><code># Send from nagzerver every 5 minutes via cron or APScheduler
+payload = post_workinon_status("nagzerver", "✓ up · " + current_time())
+# If the item disappears from the board, the server stopped sending</code></pre>
+
+  <h3>Build status (iOS app)</h3>
+  <pre><code>// At build start
+WorkinOnPoster.post(key: "build", text: "⏳ Build 44 in progress")
+
+// On success
+WorkinOnPoster.post(key: "build", text: "✓ Build 44 on TestFlight")
+
+// On failure
+WorkinOnPoster.post(key: "build", text: "✗ Build 44 failed")</code></pre>
+
+  <h3>Time-boxed focus (Notification + remove)</h3>
+  <pre><code>// Post now
+WorkinOnPoster.post(key: "focus", text: "Deep work — no interruptions")
+
+// Auto-remove in 90 minutes via silent notification
+WorkinOnNotificationHelper.scheduleRemove(
+    key: "focus",
+    silent: true,
+    at: Date().addingTimeInterval(90 * 60)
+)</code></pre>
+
+  <h3>Office hours (Shortcuts automation)</h3>
+  <p>
+    Create two automations: one at 9am posts <code>workinon://post?key=office&amp;text=Available</code>,
+    one at 5pm fires <code>workinon://remove?key=office</code>. The widget always reflects your
+    current availability.
+  </p>
+
+  <div class="callout">
+    <strong>Files to copy into your app</strong>
+    <ul style="margin-top:8px;padding-left:18px;">
+      <li><code>Shared/WorkinOnPoster.swift</code> — URL scheme posting (iOS apps)</li>
+      <li><code>Shared/WorkinOnNotificationHelper.swift</code> — scheduled notifications (iOS apps)</li>
+    </ul>
+    Both files are self-contained, zero-dependency Swift. Just copy and use.
+  </div>
+
+</main>
+
+<footer>
+  workinOn · <a href="https://github.com/billdonner/workinon">github.com/billdonner/workinon</a> · Build 44
+</footer>
+
+</body>
+</html>

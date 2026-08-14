@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>workinOn Shortcuts Gallery</title>
+  <style>
+    :root {
+      --accent: #5B7FD4;
+      --accent-light: #EEF2FB;
+      --text: #1a1a1a;
+      --secondary: #666;
+      --border: #e0e0e0;
+      --code-bg: #f6f8fa;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      color: var(--text);
+      background: #fff;
+    }
+    header {
+      background: var(--accent);
+      color: #fff;
+      padding: 48px 24px 40px;
+      text-align: center;
+    }
+    header h1 { font-size: 32px; margin-bottom: 8px; }
+    header p { opacity: 0.9; font-size: 18px; }
+    main { max-width: 760px; margin: 0 auto; padding: 32px 20px 64px; }
+    h2 { margin-top: 36px; margin-bottom: 12px; font-size: 22px; }
+    h3 { margin-top: 24px; margin-bottom: 8px; font-size: 17px; }
+    p { margin-bottom: 12px; color: var(--text); }
+    .card {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 16px 18px;
+      margin-bottom: 14px;
+      background: #fff;
+    }
+    .card h3 { margin-top: 0; }
+    .siri {
+      display: inline-block;
+      background: var(--accent-light);
+      color: var(--accent);
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-family: ui-monospace, SFMono-Regular, monospace;
+      font-size: 14px;
+      margin: 6px 0;
+    }
+    ol { padding-left: 20px; margin: 8px 0; color: var(--secondary); }
+    ol li { margin-bottom: 4px; font-size: 15px; }
+    code {
+      background: var(--code-bg);
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-family: ui-monospace, SFMono-Regular, monospace;
+      font-size: 14px;
+    }
+    .actions-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 10px;
+      margin: 12px 0;
+    }
+    .action {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 12px 14px;
+    }
+    .action b { display: block; margin-bottom: 4px; }
+    .action span { color: var(--secondary); font-size: 14px; }
+    .note {
+      background: var(--accent-light);
+      border-left: 3px solid var(--accent);
+      padding: 12px 14px;
+      border-radius: 6px;
+      margin: 16px 0;
+      font-size: 15px;
+    }
+    a { color: var(--accent); }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>workinOn Shortcuts</h1>
+    <p>Voice, automation, and one-tap actions for your focus list.</p>
+  </header>
+
+  <main>
+    <h2>Built-in actions</h2>
+    <p>workinOn registers these actions automatically. Open the Shortcuts app and search for <b>workinOn</b> — they appear without setup.</p>
+
+    <div class="actions-list">
+      <div class="action"><b>Add Item</b><span>Append text to your list.</span></div>
+      <div class="action"><b>Post Status</b><span>Pin a keyed status item — reusing the key replaces it.</span></div>
+      <div class="action"><b>Remove Status</b><span>Remove a keyed status item.</span></div>
+      <div class="action"><b>Import Feed</b><span>Replace a feed namespace from generated JSON while keeping the rest of your list.</span></div>
+      <div class="action"><b>Get List</b><span>Read back current items.</span></div>
+      <div class="action"><b>Clear List</b><span>Remove everything.</span></div>
+      <div class="action"><b>Open</b><span>Bring workinOn to the foreground.</span></div>
+    </div>
+
+    <div class="note">
+      Each action is also Siri-ready. Just say <b>"Hey Siri,"</b> followed by the phrase below.
+    </div>
+
+    <h2>Try with Siri</h2>
+
+    <div class="card">
+      <h3>Add what I'm working on</h3>
+      <div class="siri">"Hey Siri, add to workinOn"</div>
+      <p>Siri prompts for text and adds it.</p>
+    </div>
+
+    <div class="card">
+      <h3>What's on my list</h3>
+      <div class="siri">"Hey Siri, what's on my workinOn list"</div>
+      <p>Siri reads back the current list.</p>
+    </div>
+
+    <div class="card">
+      <h3>Clear it</h3>
+      <div class="siri">"Hey Siri, clear workinOn"</div>
+      <p>Empties the list.</p>
+    </div>
+
+    <div class="card">
+      <h3>Import an operational feed</h3>
+      <div class="siri">"Import feed to workinOn"</div>
+      <p>Pass the raw JSON text from a generated feed file and refresh that board in place.</p>
+    </div>
+
+    <h2>Recipes — build these in Shortcuts</h2>
+
+    <div class="card">
+      <h3>📰 Post the page I'm reading</h3>
+      <ol>
+        <li>Get URL from <b>Safari</b> (Share Sheet input).</li>
+        <li>Get Name of URL.</li>
+        <li>Run <b>Post Status to workinOn</b> — Key: <code>safari</code>, Text: the name.</li>
+      </ol>
+    </div>
+
+    <div class="card">
+      <h3>🌅 Daily standup ping</h3>
+      <ol>
+        <li>Personal Automation → Time of Day → 10:00 AM.</li>
+        <li>Run <b>Post Status to workinOn</b> — Key: <code>standup</code>, Text: <code>Standup at 10</code>.</li>
+      </ol>
+    </div>
+
+    <div class="card">
+      <h3>📍 Clear status when leaving the office</h3>
+      <ol>
+        <li>Personal Automation → Leave Location.</li>
+        <li>Run <b>Remove Status from workinOn</b> — Key: <code>office</code>.</li>
+      </ol>
+    </div>
+
+    <div class="card">
+      <h3>🎵 Now Playing → live status</h3>
+      <ol>
+        <li>Get Current Song.</li>
+        <li>Run <b>Post Status to workinOn</b> — Key: <code>music</code>, Text: the song title.</li>
+      </ol>
+    </div>
+
+    <div class="card">
+      <h3>🗂 Refresh a MasterIndex board</h3>
+      <ol>
+        <li>Get File from <b>Files</b> or <b>iCloud Drive</b>.</li>
+        <li>Get Contents of File as Text.</li>
+        <li>Run <b>Import Operational Feed to workinOn</b> — Feed JSON: the file contents.</li>
+      </ol>
+    </div>
+
+    <div class="card">
+      <h3>📤 Quick add via Share Sheet</h3>
+      <p>Already built in. From any app, tap the Share button and pick <b>Add to workinOn</b>. The selected text or URL is added to your list.</p>
+    </div>
+
+    <h2>Advanced: URL scheme</h2>
+    <p>For developers, workinOn also responds to a <code>workinon://</code> URL scheme. See the <a href="workinon-board-api.html">Board API guide</a> for full details.</p>
+  </main>
+</body>
+</html>

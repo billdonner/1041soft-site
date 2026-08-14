@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>workinOn — Privacy Policy</title>
+  <link rel="stylesheet" href="_shared.css">
+</head>
+<body>
+  <header class="page">
+    <h1>Privacy Policy</h1>
+    <p>workinOn keeps your data on your device.</p>
+  </header>
+  <nav class="top">
+    <a href="index.html">Home</a>
+    <a href="guide.html">User Guide</a>
+    <a href="shortcuts.html">Shortcuts</a>
+    <a href="support.html">Support</a>
+    <a href="board-api.html">Developer API</a>
+  </nav>
+  <main>
+    <p><em>Last updated: April 26, 2026</em></p>
+
+    <div class="note">
+      <strong>Summary:</strong> workinOn does not collect, transmit, or sell your personal data. Your list, photos, and AI chat stay on your device. Voice dictation uses Apple's speech recognition service, which may process audio on Apple's servers.
+    </div>
+
+    <h2>What we collect</h2>
+    <p><strong>We do not collect any personal information.</strong> workinOn has no servers, no analytics, no advertising SDKs, and no third-party trackers.</p>
+
+    <h2>What stays on your device</h2>
+    <ul>
+      <li><strong>Your list</strong> — stored in a local database in the app's sandbox.</li>
+      <li><strong>Photo references</strong> — workinOn stores Photo Library asset identifiers only, not photo content. Photos remain in your Photo Library.</li>
+      <li><strong>Chat with the assistant</strong> — your text input is processed by <strong>Apple Foundation Models on-device</strong>. It is never sent to any external service by workinOn.</li>
+      <li><strong>App Group data</strong> — the home-screen widget reads a small JSON snapshot of your list from a shared container on your device.</li>
+    </ul>
+
+    <h2>Voice dictation</h2>
+    <p>When you use the mic button to dictate, workinOn sends audio to <strong>Apple's speech recognition service</strong> (<code>SFSpeechRecognizer</code>). Apple may process this audio on its servers according to <a href="https://www.apple.com/privacy/">Apple's privacy policy</a>. workinOn itself never receives, stores, or transmits your audio — it only receives the resulting text transcript. You can decline microphone or speech recognition permission in <strong>Settings → Privacy &amp; Security</strong> and still use the app by typing.</p>
+
+    <h2>Optional integrations</h2>
+    <p>If you choose to use them, certain features may transmit data:</p>
+    <ul>
+      <li><strong>Push notifications (optional)</strong> — if you opt in to push sync from a server you control (e.g. your own nagzerver instance), that server delivers list updates via Apple Push Notification Service. workinOn registers a device token with the server you specify; we do not operate any such server.</li>
+      <li><strong>URL scheme &amp; Share Extension</strong> — when other apps on your device post items via <code>workinon://</code> or the share sheet, the data they pass enters your local list and stays on your device.</li>
+      <li><strong>Apple Intelligence</strong> — the on-device Foundation Models framework processes your text locally. No data leaves the device for AI processing.</li>
+    </ul>
+
+    <h2>Photo Library access</h2>
+    <p>workinOn requests permission to read your Photo Library so you can attach photos to list items. We use Apple's <code>PHAsset</code> identifiers and never copy or transmit photo data. You can revoke access at any time in <strong>Settings → Privacy &amp; Security → Photos</strong>.</p>
+
+    <h2>Notifications</h2>
+    <p>Notification permission is optional. We use it only to deliver list updates triggered by your own integrations.</p>
+
+    <h2>Children</h2>
+    <p>workinOn is not directed at children under 13. We do not knowingly collect data from any user.</p>
+
+    <h2>Data retention &amp; deletion</h2>
+    <p>All workinOn data lives on your device. To delete it, uninstall the app — iOS removes the app's local data automatically.</p>
+
+    <h2>Changes to this policy</h2>
+    <p>If this policy changes, the updated version will appear at this URL with a revised "Last updated" date.</p>
+
+    <h2>Contact</h2>
+    <p>Questions about privacy? Email <a href="mailto:midnightrambler@gmail.com">midnightrambler@gmail.com</a> or open an issue at <a href="https://github.com/billdonner/workinon/issues">github.com/billdonner/workinon</a>.</p>
+  </main>
+  <footer class="page">
+    <a href="privacy.html">Privacy</a> · <a href="support.html">Support</a> · <a href="https://github.com/billdonner/workinon">GitHub</a>
+  </footer>
+</body>
+</html>
