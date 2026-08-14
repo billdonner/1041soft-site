@@ -1,25 +1,86 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Oenora — Privacy Policy</title><link rel="stylesheet" href="/style.css"></head><body><div class="wrap"><nav><a href="/">1041Soft</a><a href="/oenora/">Support</a><a href="/oenora/privacy">Privacy</a></nav>
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Oenora — Privacy Policy</title><link rel="stylesheet" href="/style.css"></head><body>
+<div class="wrap">
+<nav><a href="/">1041Soft</a><a href="/oenora/">Support</a><a href="/oenora/privacy">Privacy</a></nav>
+
 <h1>Oenora Privacy Policy</h1>
 <p class="tag">Last updated 14 August 2026</p>
-<p>Oenora records the wine you own. Label photographs are written to disk before any
-recognition runs, and your cellar is a versioned, restart-safe record on your own
-device.</p>
-<h2>What leaves your device</h2>
-<div class="todo"><b>TODO before submitting:</b> State precisely what is sent to the
-Oenora recognition service (<code>bd-oenora-recognition.fly.dev</code>) — the label
-image, the OCR text, or both — whether requests carry any identifier, how long the
-service retains submissions, and whether any third-party model provider is involved.
-Do not describe recognition as on-device: Apple Vision OCR is, but structured
-identification is not.</div>
+
+<p>Oenora keeps a private record of the wine you own, built from photographs of
+the labels. This policy states exactly what leaves your device, who receives it,
+and what is kept.</p>
+
+<h2>On your device</h2>
+<p>Label photographs are written to disk before any recognition runs. Your cellar
+is a versioned, restart-safe record on your own device. Photographs, OCR
+evidence, and working state stay local — they are not synced to iCloud.</p>
+
+<h2>Label recognition</h2>
+<p>When you ask Oenora to identify a label, the app sends to Oenora's recognition
+service (<code>bd-oenora-recognition.fly.dev</code>):</p>
+<ul>
+<li>up to three label photographs, recompressed by the app as JPEG</li>
+<li>the text lines produced by on-device Apple Vision OCR — <strong>text only</strong>, without bounding boxes or confidence values</li>
+</ul>
+<p>Apple Vision OCR runs <strong>on your device</strong>. Structured identification
+does not, and we do not claim otherwise.</p>
+
+<h2>OpenAI</h2>
+<p>The recognition service is a stateless proxy. It forwards your label
+photographs and OCR text, with an identification prompt, to <strong>OpenAI's
+API</strong>, which returns structured results.</p>
+<p>Each request sets <code>"store": false</code>, explicitly asking OpenAI not to
+persist it. Beyond that, OpenAI's standard API data policy applies: API content
+is not used to train their models, and they apply a short retention period for
+abuse monitoring.</p>
+<p>OpenAI is the only third party that receives your data.</p>
+
+<h2>What the recognition service keeps</h2>
+<p><strong>Nothing.</strong> Recognition is proxied in memory with no disk
+writes. Requests are gated by a bearer token. Errors returned by the provider are
+read and discarded on the server so that no provider response fragment is relayed
+back to the app.</p>
+
+<h2>Encrypted backup (beta)</h2>
+<p>The same host offers an optional backup. If you use it, an encrypted snapshot
+of your cellar and its image blobs is stored on a server volume.</p>
+<p>The snapshot is encrypted with AES-GCM using a key derived from a recovery
+code held on your device. The server stores <strong>opaque ciphertext it cannot
+decrypt</strong> and never receives your recovery code.</p>
+<div class="todo"><b>TODO before submitting:</b> Backups are retained
+indefinitely — each backup overwrites the previous one, but there is no
+expiry and <b>no server-side deletion endpoint</b>. Apple's Guideline 5.1.1(v)
+requires users to be able to delete data they have created. Either add a
+deletion path before shipping this feature outside the founder beta, or state
+here plainly how a user gets their backup removed.</div>
+
 <h2>iCloud sync</h2>
-<div class="todo"><b>TODO before submitting:</b> Confirm what the CloudKit container
-<code>iCloud.com.billdonner.oenora</code> holds — cellar records, label images, or
-both — and state plainly that it is the user's own private database, which Apple
-holds and the developer cannot read.</div>
+<p>Oenora syncs through <strong>your own private iCloud database</strong>
+(<code>iCloud.com.billdonner.oenora</code>), in a single zone. There is no public
+database. The developer cannot read any user's private database.</p>
+<p>iCloud carries <strong>structured cellar metadata only — no photographs</strong>:</p>
+<ul>
+<li><b>Wine</b> — producer, name, region, country</li>
+<li><b>Vintage</b> — wine reference, year</li>
+<li><b>Bottle</b> — size, source capture reference, created date, rack/row/column location</li>
+<li><b>SealedCase</b> — case size, bottle format, exterior-readable identity, shelf location, opened date</li>
+<li><b>DomainEvent</b> — history entries: kind, subject, timestamp, short detail text</li>
+</ul>
+<p>Label photographs, OCR evidence, recovery codes, and encrypted backups are
+deliberately excluded from iCloud.</p>
+
 <h2>Camera and photo library</h2>
-<p>Camera access is used to photograph wine labels. Photo library access is used to
-select existing label photographs. Both are used only for that purpose.</p>
+<p>Camera access photographs wine labels. Photo library access selects existing
+label photographs. Neither is used for anything else.</p>
+
 <h2>Analytics and tracking</h2>
-<p>Oenora contains no third-party analytics, advertising, or tracking SDKs.</p>
-<h2>Contact</h2><p><a href="mailto:billdonner@gmail.com">billdonner@gmail.com</a></p>
-<footer>© 2026 Bill Donner · 1041Soft · <a href="mailto:billdonner@gmail.com">billdonner@gmail.com</a></footer></div></body></html>
+<p>Oenora contains no analytics, advertising, or tracking SDKs. Nothing is
+collected for advertising, nothing is sold, and nothing is shared beyond the one
+provider named above.</p>
+
+<h2>Contact</h2>
+<p><a href="mailto:billdonner@gmail.com">billdonner@gmail.com</a></p>
+
+<footer>© 2026 Bill Donner · 1041Soft · <a href="mailto:billdonner@gmail.com">billdonner@gmail.com</a></footer>
+</div></body></html>
