@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PickleFamilia - Privacy Policy</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, sans-serif; color: #333; line-height: 1.6; max-width: 720px; margin: 0 auto; padding: 24px; }
+  h1 { font-size: 2em; margin-bottom: 8px; }
+  h2 { font-size: 1.3em; margin-top: 32px; margin-bottom: 8px; color: #14401f; }
+  h3 { font-size: 1.1em; margin-top: 16px; margin-bottom: 4px; color: #444; }
+  p, li { margin-bottom: 8px; }
+  ul { padding-left: 24px; }
+  table { border-collapse: collapse; width: 100%; margin: 12px 0; }
+  th, td { border: 1px solid #ddd; padding: 8px 12px; text-align: left; vertical-align: top; }
+  th { background: #f8f9fa; }
+  code { font-family: ui-monospace, "SF Mono", Menlo, monospace; font-size: 0.9em; background: #f4f4f4; padding: 1px 4px; border-radius: 4px; }
+  .subtitle { color: #666; font-size: 1.1em; margin-bottom: 24px; }
+  .updated { color: #888; font-size: 0.9em; margin-bottom: 24px; }
+  a { color: #178050; }
+  footer { margin-top: 48px; padding-top: 16px; border-top: 1px solid #ddd; font-size: 0.85em; color: #888; }
+</style>
+</head>
+<body>
+
+<h1>PickleFamilia</h1>
+<p class="subtitle">Privacy Policy</p>
+<p class="updated">Last updated: June 30, 2026</p>
+
+<h2>1. Summary</h2>
+<ul>
+  <li>PickleFamilia is an <strong>organizer admin tool</strong>. It does not create a personal account and does not ask for your name, email, contacts, photos, location, or device fingerprint.</li>
+  <li>We do <strong>not</strong> show ads. We do <strong>not</strong> sell or share data with advertisers or analytics brokers. There are no third-party tracking SDKs.</li>
+  <li>The app stores your group's API token and (optionally) your Anthropic API key in the iOS Keychain on your device, and uses them to talk to the sign-up service you administer.</li>
+</ul>
+
+<h2>2. What the app stores on your device</h2>
+<ul>
+  <li>Your group's <strong>organizer API token</strong> and the server base URL, in the iOS Keychain.</li>
+  <li>Your <strong>Anthropic API key</strong>, if you choose to enable the voice/AI assistant, in the iOS Keychain.</li>
+</ul>
+<p>These never leave your device except to authenticate the requests described below. Deleting the app removes them.</p>
+
+<h2>3. What the app sends to the sign-up service</h2>
+<p>PickleFamilia talks to a sign-up backend operated for your group (by default <code>https://bd-nagzerver.fly.dev</code>) over HTTPS, authenticated with your organizer token. The data exchanged is the roster and schedule you manage:</p>
+<table>
+<tr><th>When</th><th>What is sent</th><th>Why</th></tr>
+<tr><td>Loading your group</td><td>Your organizer token</td><td>To return only your group's players, weeks, and sign-ups</td></tr>
+<tr><td>Managing players</td><td>Player names and PINs you enter, and active/inactive status</td><td>To maintain your roster and let players self-cancel with a PIN</td></tr>
+<tr><td>Building weeks</td><td>Game dates, times, and slot counts</td><td>To create and publish the sign-up sheet</td></tr>
+<tr><td>Sign-ups</td><td>Which player is in which game</td><td>To fill and display slots</td></tr>
+</table>
+<p>The player names and PINs are group data you enter as the organizer; they are stored on the sign-up service so the public sign-up page can function. The PINs are stored only as secure hashes, never in plain text.</p>
+
+<h2>4. The public sign-up page</h2>
+<p>When you publish a week, the sign-up service hosts a public web page for your group (a <code>/p/&lt;your-group&gt;</code> link). That page &mdash; not this app &mdash; is where your players sign up and self-cancel. It shows the published week's games and the names of players who have signed up. Share the link only with your group.</p>
+
+<h2>5. Voice and AI assistant (optional)</h2>
+<ul>
+  <li><strong>Voice.</strong> If you use the microphone button, PickleFamilia uses Apple's Speech framework to transcribe your speech into the command field. Depending on your device and iOS settings, transcription may be performed on-device or by Apple's speech-recognition service; it is governed by Apple's privacy policy. The microphone is active only while you are dictating a command.</li>
+  <li><strong>AI commands.</strong> If you enable the assistant with your own Anthropic API key, the text of your command together with your current roster and week (player names and internal IDs) is sent to the Anthropic API to translate it into actions. That request uses your key and is governed by Anthropic's policies. If you do not add a key, no data is sent to Anthropic.</li>
+</ul>
+
+<h2>6. Tracking</h2>
+<p>PickleFamilia does not use Apple's App Tracking Transparency framework because we do not track you across other apps and websites, and we do not use advertising identifiers.</p>
+
+<h2>7. Third parties</h2>
+<ul>
+  <li><strong>Anthropic</strong> &mdash; only if you enable the AI assistant with your own key (see Section 5).</li>
+  <li><strong>Apple Speech</strong> &mdash; only if you use voice input (see Section 5).</li>
+</ul>
+<p>The sign-up backend is hosted on Fly.io, which can see network metadata (such as IP address) for technical reasons. The app embeds no third-party advertising or analytics SDKs.</p>
+
+<h2>8. Children</h2>
+<p>PickleFamilia is an administrative tool intended for group organizers, not children. We do not knowingly collect personal information from children.</p>
+
+<h2>9. Your choices</h2>
+<ul>
+  <li>Delete the app to remove the token and any stored key from your device.</li>
+  <li>Turn off network access for PickleFamilia in iOS Settings to stop it contacting the sign-up service.</li>
+  <li>To delete your group's organizer record, roster, or schedule data from the sign-up service, email us at the address below.</li>
+</ul>
+
+<h2>10. Changes to this policy</h2>
+<p>If we change this policy we will update the &ldquo;Last updated&rdquo; date above.</p>
+
+<h2>11. Contact</h2>
+<p>Email: <a href="mailto:midnightrambler@gmail.com">midnightrambler@gmail.com</a></p>
+
+<footer>
+<p>PickleFamilia &copy; 2026 Bill Donner. All rights reserved.</p>
+</footer>
+
+</body>
+</html>

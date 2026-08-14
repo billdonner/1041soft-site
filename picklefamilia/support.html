@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PickleFamilia - Support</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, sans-serif; color: #333; line-height: 1.6; max-width: 720px; margin: 0 auto; padding: 24px; }
+  h1 { font-size: 2em; margin-bottom: 8px; }
+  h2 { font-size: 1.3em; margin-top: 32px; margin-bottom: 8px; color: #14401f; }
+  h3 { font-size: 1.1em; margin-top: 16px; margin-bottom: 4px; color: #444; }
+  p, li { margin-bottom: 8px; }
+  ul { padding-left: 24px; }
+  .subtitle { color: #666; font-size: 1.1em; margin-bottom: 24px; }
+  .faq { background: #f8f9fa; border-radius: 8px; padding: 16px; margin-bottom: 12px; }
+  .faq strong { display: block; margin-bottom: 4px; }
+  .contact { background: #eef7f1; border-radius: 8px; padding: 12px 16px; margin-bottom: 8px; }
+  .contact strong { color: #14401f; }
+  a { color: #178050; }
+  footer { margin-top: 48px; padding-top: 16px; border-top: 1px solid #ddd; font-size: 0.85em; color: #888; }
+</style>
+</head>
+<body>
+
+<h1>PickleFamilia</h1>
+<p class="subtitle">Support</p>
+
+<h2>Contact</h2>
+
+<div class="contact">
+<strong>General Support &amp; Bug Reports</strong>
+<p>Questions about running your group, or anything that looks broken.</p>
+<p><a href="mailto:midnightrambler@gmail.com?subject=PickleFamilia%20support">midnightrambler@gmail.com</a></p>
+</div>
+
+<div class="contact">
+<strong>Privacy Requests</strong>
+<p>Data deletion or questions about how your data is handled.</p>
+<p><a href="mailto:midnightrambler@gmail.com?subject=PickleFamilia%20privacy">midnightrambler@gmail.com</a></p>
+</div>
+
+<h2>Getting Started</h2>
+
+<div class="faq">
+<strong>How do I set up the app?</strong>
+<p>PickleFamilia is the organizer's admin app. Open Settings and paste the API token your group was issued, then tap Save. Your roster and current week load automatically. The voice/AI assistant is optional &mdash; add your own Anthropic API key in Settings to enable it.</p>
+</div>
+
+<div class="faq">
+<strong>Where do players sign up?</strong>
+<p>Players don't need the app. After you publish a week, open the Share tab to get a public link (and an embed snippet for your club website). Send the link to your group &mdash; players pick their name and claim a slot right in their browser.</p>
+</div>
+
+<h2>Frequently Asked Questions</h2>
+
+<div class="faq">
+<strong>How do I build a week?</strong>
+<p>On the Week tab, tap +. PickleFamilia pre-fills Monday&ndash;Friday with common start times; toggle off any days you don't play and adjust dates and times. Set the number of slots per game, then create it as a draft. Publish from the Week screen or Settings when it's final &mdash; only published weeks appear on the public link.</p>
+</div>
+
+<div class="faq">
+<strong>What happens when a game fills up?</strong>
+<p>Each game has a fixed number of slots. Once they're all taken, the game locks and no one else can sign up. Sign-ups are first-come, and the last open slot can never be double-booked.</p>
+</div>
+
+<div class="faq">
+<strong>How does a player cancel their spot?</strong>
+<p>On the public page, a player chooses their name and enters their PIN to release their own slot. You can also remove anyone yourself from the Week tab.</p>
+</div>
+
+<div class="faq">
+<strong>What are PINs for?</strong>
+<p>A PIN lets a player cancel their own slot on the public page without being able to touch anyone else's. Set or reset a player's PIN any time from the Players tab.</p>
+</div>
+
+<div class="faq">
+<strong>How does voice control work?</strong>
+<p>Tap the mic in the command bar and speak, e.g. &ldquo;add Nancy to Tuesday&rdquo; or &ldquo;set Bill's PIN to one two three four.&rdquo; PickleFamilia turns your words into the right actions and asks for clarification if something is ambiguous. Typing the same commands works too. Voice/AI requires your own Anthropic API key (added in Settings); core admin works fully without it.</p>
+</div>
+
+<div class="faq">
+<strong>Why is the assistant asking me to add a key?</strong>
+<p>The natural-language assistant uses the Anthropic API with a key you supply, stored only in your device Keychain. Until you add one, the assistant is disabled &mdash; but you can still manage players, weeks, and sign-ups normally.</p>
+</div>
+
+<div class="faq">
+<strong>A player's name is missing from the sign-up list.</strong>
+<p>Only active players appear. Check the Players tab &mdash; if they're marked off, tap to reactivate them. Deactivating a player keeps their history without showing them in new weeks.</p>
+</div>
+
+<div class="faq">
+<strong>I need an organizer token, or mine stopped working.</strong>
+<p>Tokens are issued per group and can be rotated. Email us and we'll get you a fresh one.</p>
+</div>
+
+<footer>
+<p>PickleFamilia &copy; 2026 Bill Donner. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
