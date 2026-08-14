@@ -1,1 +1,88 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Pfoliolio — Privacy Policy</title><link rel="stylesheet" href="/style.css"></head><body><div class="wrap"><nav><a href="/">1041Soft</a><a href="/pfolio/">Support</a><a href="/pfolio/privacy">Privacy</a></nav><h1>Pfoliolio Privacy Policy</h1><p class='tag'>Last updated 13 August 2026</p><p>Pfoliolio tracks holdings across your accounts. It is a tracker, not a brokerage: it executes no trades and gives no financial advice.</p><h2>What is collected</h2><div class='todo'><b>TODO before submitting:</b> CRITICAL — financial data is among Apple's most scrutinised categories. State exactly what reaches bd-pfolio.fly.dev, what the Claude-powered Q&A assistant transmits, how long holdings data is retained, and whether it is ever used for training. Do not describe anything as on-device unless it is.</div><h2>Analytics and tracking</h2><p>Pfoliolio contains no third-party analytics, advertising, or tracking SDKs.</p><h2>Contact</h2><p><a href='mailto:billdonner@gmail.com'>billdonner@gmail.com</a></p><footer>© 2026 Bill Donner · 1041Soft · <a href="mailto:billdonner@gmail.com">billdonner@gmail.com</a></footer></div></body></html>
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Pfoliolio — Privacy Policy</title><link rel="stylesheet" href="/style.css"></head><body>
+<div class="wrap">
+<nav><a href="/">1041Soft</a><a href="/pfolio/">Support</a><a href="/pfolio/privacy">Privacy</a></nav>
+
+<h1>Pfoliolio Privacy Policy</h1>
+<p class="tag">Last updated 13 August 2026</p>
+
+<p>Pfoliolio tracks investment holdings across your accounts. It is a tracker,
+not a brokerage: it executes no trades and gives no financial advice. This
+policy describes exactly what leaves your device, where it goes, and how long
+it is kept.</p>
+
+<h2>The server</h2>
+<p>The app has one server, <code>bd-pfolio.fly.dev</code>, operated by the
+developer on Fly.io. All transport is HTTPS.</p>
+
+<h2>Sign-in</h2>
+<p>When you sign in, the app sends your Apple identity token. We keep Apple's
+per-app user identifier and, <em>on first sign-in only</em>, the email address
+Apple supplies. After that the app authenticates with a random session token
+stored in your device Keychain; the server holds only a SHA-256 hash of it.
+Sessions expire after 90 days and are revoked server-side when you sign out.</p>
+
+<h2>Your investment data</h2>
+<p>Your holdings travel <strong>server-to-server, not from your device</strong>.
+The server retrieves accounts, securities, and holdings from Plaid using a
+read-only access token.</p>
+<p>You enter your brokerage credentials on Plaid's own hosted page in the
+browser. <strong>Neither the app nor our server ever sees your brokerage
+username or password.</strong> Read-only means the connection cannot trade,
+transfer, or withdraw — that is a property of the Plaid product scope, not a
+promise we are making on its behalf.</p>
+
+<h2>What the app sends</h2>
+<p>From your device, the server receives what you type: questions to the
+assistant, manually entered holdings, classification corrections, account
+nicknames, and allocation targets.</p>
+
+<h2>The Q&amp;A assistant</h2>
+<p>When you ask a question, our server sends to Anthropic's API: your question,
+up to the last six turns of your conversation, and a JSON snapshot of the same
+portfolio data the dashboard shows — tickers, security names, dollar values,
+account names and types, institution names, and the last-four account mask.</p>
+<p>It does <strong>not</strong> include your name, email, Apple identifier, or
+any Plaid token.</p>
+<p>The model runs on Anthropic's servers. <strong>Nothing about the assistant is
+on-device, and we do not claim otherwise.</strong> Under the Anthropic
+commercial API terms this app uses, submitted content is not used to train
+Anthropic's models.</p>
+
+<h2>Retention</h2>
+<ul>
+<li>Holdings are replaced on every sync — sold positions are deleted, not archived.</li>
+<li>Plaid access tokens are kept for as long as an institution stays connected. Disconnecting an institution, or using the in-app reset, deletes the connection and its holdings.</li>
+<li>Q&amp;A history is kept server-side to provide conversation context.</li>
+<li>Daily allocation snapshots are kept to draw the history chart.</li>
+<li>Deleting your account deletes all of your data together, by database-level cascade.</li>
+</ul>
+
+<h2>Tracking, advertising, and training</h2>
+<p>The app contains no analytics, advertising, or tracking SDKs. Nothing is
+collected for advertising. Nothing is sold, and nothing is shared beyond the two
+service providers named here: <strong>Plaid</strong> and
+<strong>Anthropic</strong>.</p>
+<p>Your data is not used to train any model — ours (we have none) or Anthropic's
+(excluded under their commercial API terms). It is not used for advertising or
+shared for tracking, in the App Privacy sense or any other.</p>
+
+<h2>Assistant provider</h2>
+<p>Today the assistant uses one provider: Anthropic's Claude, via its commercial
+API, exactly as described above.</p>
+<p>A user-selectable provider setting is planned, with three options and three
+different data paths. The app will state the active one plainly:</p>
+<ul>
+<li><strong>Anthropic Claude</strong> (current default) — question, recent conversation, and portfolio snapshot go to Anthropic's servers; excluded from training under its commercial API terms.</li>
+<li><strong>OpenAI</strong> (planned) — the same payload would go to OpenAI's servers instead, under its API terms, which likewise exclude API content from training by default.</li>
+<li><strong>Apple Intelligence</strong> (planned) — the model runs <strong>on your device</strong>; your question and portfolio snapshot would not leave it for the Q&amp;A feature at all. This will be the only configuration described as on-device, and only once it ships.</li>
+</ul>
+<p>Until a provider option ships in a released build, the statement above stands:
+the assistant is Claude, server-side.</p>
+
+<h2>Contact</h2>
+<p><a href="mailto:billdonner@gmail.com">billdonner@gmail.com</a></p>
+
+<footer>© 2026 Bill Donner · 1041Soft · <a href="mailto:billdonner@gmail.com">billdonner@gmail.com</a></footer>
+</div></body></html>
