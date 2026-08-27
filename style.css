@@ -277,6 +277,19 @@ h2{
 .status.public{color:#fff;background:var(--coral);border-color:var(--coral)}
 .status.invite{color:#231709;background:#f1cc72;border-color:#e0b852}
 .status.support{color:var(--fg);background:transparent}
+.card-statuses{display:flex;align-items:flex-start;justify-content:flex-end;gap:.4rem;flex-wrap:wrap}
+.capability{
+  align-self:flex-start;
+  border:1px solid var(--accent-strong);
+  border-radius:999px;
+  color:var(--accent-strong);
+  background:transparent;
+  font-size:.72rem;
+  font-weight:850;
+  line-height:1.2;
+  padding:.28rem .55rem;
+  white-space:nowrap;
+}
 .app-card h3{
   font-size:1.18rem;
   line-height:1.15;
