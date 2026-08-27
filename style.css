@@ -252,6 +252,7 @@ h2{
   box-shadow:0 12px 26px rgba(24,28,31,.14);
 }
 .app-mark.wine{background:var(--coral)}
+.app-mark.kinflash{background:var(--gold);color:#231709}
 .app-mark.screen{background:var(--blue)}
 .app-mark.mall{background:var(--moss)}
 .app-mark.pfolio{background:#584d8d}
@@ -273,7 +274,8 @@ h2{
   padding:.28rem .55rem;
   white-space:nowrap;
 }
-.status.live{color:#fff;background:var(--coral);border-color:var(--coral)}
+.status.public{color:#fff;background:var(--coral);border-color:var(--coral)}
+.status.invite{color:#231709;background:#f1cc72;border-color:#e0b852}
 .status.support{color:var(--fg);background:transparent}
 .app-card h3{
   font-size:1.18rem;
