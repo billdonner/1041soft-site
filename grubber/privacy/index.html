@@ -1,0 +1,83 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Grubber — Privacy Policy</title><link rel="stylesheet" href="/style.css"></head><body>
+<div class="wrap">
+<nav><a href="/">1041Soft</a><a href="/grubber/">Grubber</a><a href="/grubber/support.html">Support</a><a href="/grubber/privacy/">Privacy</a></nav>
+
+<h1>Grubber Privacy Policy</h1>
+<p class="tag">Last updated 29 August 2026</p>
+
+<p>Grubber Desk is a reader. It displays transcribed podcast material and news
+coverage fetched from the grubber service at
+<code>bd-grubber.fly.dev</code>. There is no account, no login, and no user
+profile. This policy states exactly what leaves your device and what is kept.</p>
+
+<h2>On your device</h2>
+<p>Grubber Desk stores two things in your system preferences: the API key you paste
+into Settings, and the service address (which defaults to
+<code>bd-grubber.fly.dev</code> and which you may override). Nothing else is
+persisted, and neither value is synced to iCloud.</p>
+
+<h2>What the app sends</h2>
+<p>Every request Grubber Desk makes is a read-only HTTP <code>GET</code> to
+<code>bd-grubber.fly.dev/api/v1/</code>. The app never sends a
+<code>POST</code>, a <code>PUT</code>, or a request body of any kind. It uploads
+no files, no audio, and no documents.</p>
+<p>Requests carry your API key in an <code>X-Client-Key</code> header. That key
+authorizes an application's access to the service. It is <strong>not generated
+per user or per device</strong> and does not identify you — testers share the
+same key.</p>
+<p>Grubber Desk sends <strong>no user identity, no account, no device identifier,
+no advertising identifier, no telemetry, no crash reports, and no reading
+history</strong>. What you open and how long you read it is not reported
+anywhere.</p>
+
+<h2>Search</h2>
+<p>When you use Search, the words you type are sent to the service as part of the
+request so it can run the query. <strong>Search text is the only content you
+type that ever leaves your device.</strong></p>
+<p>Being plain about where it lands: the service currently writes a standard web
+server access log, and a request's address — including your search terms —
+appears in that log. Those logs exist for operating and debugging the service.
+They are not used to build a profile, are not linked to any identity, and are
+not sold or shared. They age out with the hosting provider's ordinary log
+retention.</p>
+<p>We intend to stop recording search terms in that log. Until that ships, the
+paragraph above is what happens, and this page will be updated when it
+changes.</p>
+
+<h2>What the service keeps</h2>
+<p>Beyond the access log described above, Grubber Desk requests are not recorded.
+The service stores podcast and news material it has gathered from publishers; it
+does not store per-reader records, because it never learns who the reader is.</p>
+
+<h2>Analytics and tracking</h2>
+<p>Grubber Desk contains no analytics, advertising, or tracking SDKs, and no
+third-party trackers of any kind. There is no Advertising Identifier (IDFA) and
+no cross-app or cross-site tracking. Nothing is collected for advertising and
+nothing is sold.</p>
+
+<h2>Device access</h2>
+<p>Grubber Desk does not access your camera, microphone, contacts, photo library,
+calendar, health data, or location — precise or approximate.</p>
+
+<h2>Third-party content</h2>
+<p>Grubber Desk presents podcast transcripts and news reporting produced by their
+respective publishers, for reading, search, and discovery. Rights remain with
+those publishers. Each article and episode view identifies its source and links
+back to the original page. Opening that link hands off to your browser, where
+the publisher's own privacy policy applies.</p>
+
+<h2>Children</h2>
+<p>Grubber Desk is not directed at children. It surfaces unfiltered current events
+and unedited podcast language.</p>
+
+<h2>Changes</h2>
+<p>If this policy changes materially, the date at the top of this page changes
+with it.</p>
+
+<h2>Contact</h2>
+<p><a href="mailto:billdonner@gmail.com">billdonner@gmail.com</a></p>
+
+<footer>© 2026 Bill Donner · 1041Soft · <a href="mailto:billdonner@gmail.com">billdonner@gmail.com</a></footer>
+</div></body></html>
