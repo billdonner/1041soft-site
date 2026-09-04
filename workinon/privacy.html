@@ -19,14 +19,14 @@
     <a href="board-api.html">Developer API</a>
   </nav>
   <main>
-    <p><em>Last updated: April 26, 2026</em></p>
+    <p><em>Last updated: September 4, 2026</em></p>
 
     <div class="note">
-      <strong>Summary:</strong> workinOn does not collect, transmit, or sell your personal data. Your list, photos, and AI chat stay on your device. Voice dictation uses Apple's speech recognition service, which may process audio on Apple's servers.
+      <strong>Summary:</strong> workinOn does not sell your personal data and has no analytics or advertising. Your list, photos, and AI chat stay on your device. Two optional features send data off the device: voice dictation (Apple's speech recognition service) and GitHub tabs (the workinOn sync service, described below).
     </div>
 
     <h2>What we collect</h2>
-    <p><strong>We do not collect any personal information.</strong> workinOn has no servers, no analytics, no advertising SDKs, and no third-party trackers.</p>
+    <p><strong>We do not collect personal information for our own use.</strong> workinOn has no analytics, no advertising SDKs, and no third-party trackers. The only server workinOn talks to is the workinOn sync service, and only when you add a GitHub tab.</p>
 
     <h2>What stays on your device</h2>
     <ul>
@@ -42,6 +42,7 @@
     <h2>Optional integrations</h2>
     <p>If you choose to use them, certain features may transmit data:</p>
     <ul>
+      <li><strong>GitHub tabs (optional)</strong> — when you add a GitHub tab, workinOn sends the GitHub access token you enter, the repository or user you chose, and this device's push token to the workinOn sync service (operated by 1041Soft on Fly.io). The service polls GitHub on your behalf every few minutes and pushes pull request, review, and issue summaries to your device. Tokens are stored encrypted at rest, used only to call the GitHub API for your tab, and never shared. Deleting the tab in the app removes the registration from the service; you can also revoke the token at any time in GitHub settings.</li>
       <li><strong>Push notifications (optional)</strong> — if you opt in to push sync from a server you control (e.g. your own nagzerver instance), that server delivers list updates via Apple Push Notification Service. workinOn registers a device token with the server you specify; we do not operate any such server.</li>
       <li><strong>URL scheme &amp; Share Extension</strong> — when other apps on your device post items via <code>workinon://</code> or the share sheet, the data they pass enters your local list and stays on your device.</li>
       <li><strong>Apple Intelligence</strong> — the on-device Foundation Models framework processes your text locally. No data leaves the device for AI processing.</li>
@@ -57,7 +58,7 @@
     <p>workinOn is not directed at children under 13. We do not knowingly collect data from any user.</p>
 
     <h2>Data retention &amp; deletion</h2>
-    <p>All workinOn data lives on your device. To delete it, uninstall the app — iOS removes the app's local data automatically.</p>
+    <p>Your list and photos live on your device. To delete them, uninstall the app — iOS removes the app's local data automatically. If you used a GitHub tab, delete the tab before uninstalling, or email us and we will remove the registration from the sync service.</p>
 
     <h2>Changes to this policy</h2>
     <p>If this policy changes, the updated version will appear at this URL with a revised "Last updated" date.</p>
