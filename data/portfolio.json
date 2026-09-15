@@ -1,0 +1,159 @@
+{
+  "updated": "2026-09-14",
+  "apps": [
+    {
+      "slug": "amenbeats",
+      "name": "AmenBeats",
+      "tagline": "A pocket 16-step sequencer for studying and remixing the most famous drum breaks.",
+      "description": "AmenBeats is a real drum machine built for kids — with a full studio hiding behind a grown-up gate.\n\nKID MODE: ONE SCREEN, BIG BUTTONS\nNo menus, no settings, nothing to break. Open it and the beat picker spins like a slot machine and lands on a groove, ready to play. Kids can:\n• Pick from playful beats — Boom Bap, Rock, Disco, Marchin', Shuffle, Techno, Reggae, Waltz — and eight legendary breaks\n• Tap the grid to add and remove drum hits, on a 4, 8, 12, or 16-step canvas\n• Bash the four drums live — Open Hat, Closed Hat, Snare, Kick — right from the grid\n• Flip power switches: SWING for groove, WILD to loosen it up, FILL! for a snare roll, DROP! to cut the beat out and slam it back\n• Speed up and slow down with big plus and minus buttons\n• Spin the wheel any time for a surprise beat\n\nSAVE A BEAT. SAVE THE WHOLE SHOW.\nEverything a kid plays is quietly recorded — the beat, the tempo changes, every live tap. One button saves the entire performance, however long it ran, and one tap plays it back exactly as it happened. Their beats and shows sit in their own list, ready to hear again.\n\nGROWN-UPS SET THE RULES\nKid Setup tailors the app to each child:\n• Choose exactly which beats and famous breaks they can reach\n• Set the tempo range they can dial between\n• Cap the volume\n• Turn on mute and solo for older kids learning how a kit fits together\n• Set up more than one child, each with their own beats, limits, and saved work\n\nKid Mode stays put. Leaving it takes a deliberate two-second press-and-hold that little fingers won't stumble into — so handing over the iPad doesn't mean handing over the studio.\n\nTHE GROWN-UP STUDIO\nBehind the gate is a proper 16-step, 4-voice sequencer:\n• Eight study templates of the most sampled breaks ever recorded: the Amen break, the Funky Drummer, Apache, Think, Impeach, When the Levee Breaks, Cold Sweat, and the Big Beat\n• Tap any step through on, stomp (accent), and ghost — stomps add punch, ghost notes add the feel that makes a break breathe\n• Tempo from 40 to 220 BPM, swing, and per-voice mute and solo\n• Humanize and per-voice lay-back for a relaxed, human pocket\n• Save your grooves and chain them into a looping song, each pattern held for as many bars as you like\n\nMIDI AND ABLETON, SET UP BY A GROWN-UP\nThe studio talks to real gear, and every bit of it is configured on the parent side — never in the child's reach:\n• Send MIDI on GM channel 10 so your pattern drives a drum rack in Ableton Live or any DAW\n• Export any pattern as a Standard MIDI clip and drag it straight into a session\n• Import a .mid clip back onto the grid\n• Sync tempo with Live and other Link-enabled apps over Ableton Link\n\nSAFE BY DESIGN\nNo account. No sign-in. No ads. No in-app purchases. No analytics, no tracking, and no servers — AmenBeats collects nothing, and everything a child makes stays on the device. Every drum sound is synthesized as the app runs, so nothing is ever downloaded and the app stays tiny. It plays through the speaker even with the ring switch set to silent.\n\nFree.",
+      "home": "https://1041soft.com/amenbeats/",
+      "support": "https://1041soft.com/amenbeats/support.html",
+      "privacy": "https://1041soft.com/amenbeats/privacy/",
+      "platform": "iPhone · iPad",
+      "homepage": false
+    },
+    {
+      "slug": "murdl",
+      "name": "MURDL 16",
+      "tagline": "Guess five-letter words on 2, 4, 8, or 16 boards at once. Three modes, a score book, and full keyboard play, built for the Mac.",
+      "description": "MURDL is the five-letter word game for people who find one board too easy. Every guess you type is played on every board at once, and each board has its own five-letter answer. Solve them all before the guesses run out.\n\nChoose your challenge: 2, 4, 8, or 16 boards. You always get five more guesses than boards, so the classic 8-board game gives you 13 guesses, and 16 boards gives you 21. Boards stop taking guesses once they are solved, so every word you play has to work for the boards still open.\n\nThree ways to play. Classic keeps the clock off screen. Stopwatch counts up from your first keystroke and keeps your fastest win at every board count. Sprint counts down from 45 seconds per board, adds 10 seconds for every board you solve, and takes away every unfinished board when it reaches zero. In both timed modes the clock waits for your first keystroke and pauses while Help is open, so you can study the boards before you start.\n\nBuilt for the Mac. Type on your real keyboard from any window. The on-screen keyboard is a small floating window that shows the best result each letter has earned on any board; close it if you do not need it, and MURDL remembers where you put it. Every action has a menu item and a keyboard shortcut, so the whole game can be played without touching the mouse.\n\nSee the boards your way. A grid of up to eight boards per row, or one long horizontal strip. Scroll with a trackpad swipe, a scroll wheel, or the arrow keys, which step a highlight from board to board and keep it in view.\n\nKeep score. Every finished game is recorded with its result, score, guesses used, and time. The Scores window shows games played, win percentage, current and best streaks, best score, and best time. Helper Mode, which plays the next unfinished board's answer for you, is recorded as assisted and never counts as a win.\n\nNo account, no ads, no network. Your games stay on your Mac.",
+      "home": "https://1041soft.com/murdl/",
+      "support": "https://1041soft.com/murdl/#support",
+      "privacy": "https://1041soft.com/murdl/privacy/",
+      "platform": "Mac",
+      "homepage": false
+    },
+    {
+      "slug": "123words",
+      "name": "123 Words",
+      "tagline": "Read, spell and race the clock — a learning playground for ages 2–7.",
+      "description": "123 Words is a joyful learning playground for kids ages 2–7. Read, spell, count, and race the clock — all in one beautifully designed app made with love for grandkids. No ads, no accounts, no internet required.\n\nRACE!\nPick a 1- or 2-minute race, then swipe between five mini-games — Spell It, Word Scramble, Memory Match, Listen & Pick, and Count It — answering as many as you can. One shared timer ticks down at the top while the score chip counts up. Earn 1, 2, or 3 stars (at 10, 20, and 30 points) and track your personal best for each duration. Kids race themselves, race a sibling, race a grandparent.\n\nPRACTICE\nA separate, untimed reader. Swipe through 220+ carefully chosen short words. The app speaks each word aloud, then lights up the letters one by one as it spells them out. Every word has its own picture — open-source emoji, AI-generated illustrations, or crisp system icons. Two-finger tap any picture to see where it came from.\n\nFIVE MINI-GAMES, ONE RACE\n• Spell It — see the picture, tap the letters in order\n• Word Scramble — unscramble the jumbled letters\n• Listen & Pick — hear a word, pick the matching picture\n• Memory Match — match words with their pictures (easy 8 pairs or hard 16)\n• Count It — friendly addition and subtraction with counting dots\n\n220+ HAND-PICKED WORDS\nEvery word was chosen for clarity, simplicity, and child-friendliness — from animals (cat, fox, owl, bee, yak) to everyday objects (box, cup, jar, key) to nature (sun, ice, elm, ivy). Random order keeps every session fresh.\n\nPICK THE PERFECT VOICE\nChoose from all the English voices on your device — American, British, Australian, Irish, and more. Premium and enhanced voices sound warm and natural. Your choice is remembered across sessions.\n\nBUILT FOR LITTLE HANDS AND BIG HEARTS\n• No ads, no in-app purchases, no subscriptions\n• No internet required — works completely offline\n• No data collected — ever\n• Giant, finger-friendly buttons and tiles\n• Bright, ever-changing color palette\n\nFOR PARENTS\nA hidden parental settings sheet (long-press the small version label at the bottom of the home screen) lets parents:\n• Switch between Race! mode (new default) and Classic mode (the original per-game hub with no timer)\n• Reset race best scores\n• Choose math operations\n• Customize buttons\n\nGREAT FOR\n• Toddlers and pre-readers seeing words for the first time\n• Early readers building phonics and spelling skills\n• ESL learners hearing clear, natural pronunciation\n• Grandparents playing and racing with grandchildren\n• Siblings competing for the high score\n\nSimple. Beautiful. Made with love for little learners — and the people who play with them.",
+      "home": "https://1041soft.com/123words/",
+      "support": "https://1041soft.com/123words/support.html",
+      "privacy": "https://1041soft.com/123words/privacy.html",
+      "platform": "iPhone · iPad",
+      "homepage": false
+    },
+    {
+      "slug": "100burfords",
+      "name": "100 Burfords",
+      "tagline": "All 100 of Gary B. Martin's weekly Burford cartoons, with the original reader comments.",
+      "description": "Every week since June 2024, cartoonist Gary B. Martin has published a new Burford in the West Side Rag — New York City's beloved neighborhood newspaper covering the Upper West Side. The Burfords are salt-of-the-earth New Yorkers: ordinary people captured with affection, wit, and the kind of gentle humanity that makes you smile on the subway.\n\nThis app collects all 100 strips in a single, beautiful gallery — browse the full collection as a grid, or read straight through in landscape book mode, one cartoon at a time.\n\nEach entry includes the original publication date, the reader comments from the West Side Rag website (thousands of neighbors weighing in on their fellow New Yorkers), and a direct link to add your own comment on the live article.\n\n100 Burfords. One neighborhood. One hundred small portraits of who we all are.\n\nAn unofficial fan tribute to Gary B. Martin and his remarkable body of work. All cartoons © Gary B. Martin.",
+      "home": "https://1041soft.com/100burfords/",
+      "support": "https://1041soft.com/100burfords/#support",
+      "privacy": "https://1041soft.com/100burfords/privacy.html",
+      "platform": "iPhone · iPad",
+      "homepage": false
+    },
+    {
+      "slug": "pickledballs",
+      "name": "PickledBalls",
+      "tagline": "Run a whole pickleball session from your phone — balanced courts, pair rules enforced.",
+      "description": "PickledBalls turns a pile of players into fair, balanced courts in seconds. Pick who's here, tap once, and start playing — no account, no setup, no clipboard.\n\n**Start a game in under 30 seconds**\nChoose your players, pick the sport, set courts and rounds, and go. New Game drops you straight into a ready-to-play schedule. Close the app mid-session and pick up exactly where you left off.\n\n**Courts that are actually balanced**\nA Whist-based optimizer tracks every partnership and court visit across rounds, so nobody gets stuck with the same partner twice and every court stays evenly loaded. Random pairing is free. Want courts matched to your group's levels? **Organizer Pro** adds skill-based scheduling — Seeded (strong with strong) and Balanced (snake-draft by each player's own DUPR/UTR-style rating).\n\n**Pair Rules — set once, honored everywhere**\nMark any two players as Never Partners, Always Partners, or Never Same Court. The scheduler obeys every rule automatically, every round. No manual fiddling.\n\n**Run the whole thing from your phone**\nExpand any round to see the matchups. Swap players in this round or a future one with a tap. Jot per-round notes. Start the built-in timer with a one-minute warning. Enter scores as you go — or don't; lineups are always saved. Everything survives closing the app. Free runs up to 3 courts; Organizer Pro runs up to 24 at once.\n\n**Everyone sees their court — live, on their own phone**\nPlaying instead of running the show? Set yourself as a Player and type your name once. The organizer's court assignments and scores show up live on your phone as the game unfolds. No more crowding around one screen between rounds. It all happens over the local network in the room: no account, no sign-up, nothing leaves your devices.\n\n**Paper-friendly score sheets**\nPrint each round with score boxes, let players write scores court-side, then scan the filled sheet with the camera — PickledBalls reads the scores and you review each one before it's saved.\n\n**Plan next week by just saying it**\nForward Schedule keeps upcoming reservations and player changes straight: type it, tap it, or speak it — \"Dana's out Thursday, add Rick\" — and the plan updates itself, all on your device.\n\n**Look back at every game**\nPast games and results are kept on-device so you can see how the night went.\n\n**Pickleball, tennis, and ping pong** — singles or doubles, your choice per game.\n\n**No AI in the free app.** Your courts are built by fast, private, on-device math — no artificial intelligence, no cloud, nothing sent anywhere. Optional voice input is transcribed on-device by Apple's speech engine. (An optional plain-language AI assistant is planned only as a later paid upgrade — never part of the free app.)\n\n**No account, ever.** Free runs games up to 3 courts. Organizer Pro — bigger sessions (up to 24 courts) and schedule-by-skill — is free right now.",
+      "home": "https://1041soft.com/pickledballs/",
+      "support": "https://1041soft.com/pickledballs/support.html",
+      "privacy": "https://1041soft.com/pickledballs/privacy.html",
+      "platform": "iPhone · iPad",
+      "homepage": true
+    },
+    {
+      "slug": "workinon",
+      "name": "workin On",
+      "tagline": "One screen for what you're actually working on right now, managed by on-device AI.",
+      "description": "Your brain holds more than a to-do list can capture — it holds the messy, half-formed inventory of everything currently in play. workinOn is a single focused screen for that inventory: a short ordered list of what you're actually working on right now, managed by an AI that speaks plain English.\n\nType the way you'd think out loud. Something like \"working on the presentation, calling the electrician, and packing for the trip\" lands as three clean items on your list. The AI parses it, adds each one, and confirms what it did. No tapping through forms, no picking categories, no choosing a due date for something that just needs to get done.\n\nRearranging is just as natural. Say \"move the presentation to the top\" or \"drop the grocery run\" and the list updates immediately. You can swap items, clear everything, or ask what's on your list — all without leaving the text field.\n\nThe best part lives on your home screen. Add the Large workinOn widget and your current list is always visible the moment you glance at your phone. It updates itself whenever the list changes, no opening required.\n\nOther apps on your device can push live status items into your list using the workinOn URL scheme or the built-in Shortcuts actions. You can wire up a time-of-day automation to post your daily standup reminder, have Safari pin the page you're researching, or clear a status item when you leave a location. The in-app Shortcuts gallery walks you through a handful of ready-made recipes.\n\nEverything stays on your device. No account, no subscription, no cloud sync. workinOn requires Apple Intelligence, available on iPhone 16 and later.\n\nBuilt by one person, used every day. The (i) button is always there if you need a refresher, and the TestFlight invite link is in the app if you want to bring a friend along.",
+      "home": "https://1041soft.com/workinon/",
+      "support": "https://1041soft.com/workinon/support.html",
+      "privacy": "https://1041soft.com/workinon/privacy.html",
+      "platform": "iPhone · Watch · Widget",
+      "homepage": false
+    },
+    {
+      "slug": "qross",
+      "name": "DoubleQross",
+      "tagline": "Grid trivia where the board is the puzzle and every wrong answer closes a path.",
+      "description": "Grid trivia where the board is the puzzle and every wrong answer closes a path.",
+      "home": "https://1041soft.com/qross/",
+      "support": "https://1041soft.com/qross/support.html",
+      "privacy": "https://1041soft.com/qross/privacy.html",
+      "platform": "Apple platforms",
+      "homepage": false
+    },
+    {
+      "slug": "oenora",
+      "name": "Oenora",
+      "tagline": "Private wine-cellar knowledge with label capture, CloudKit sync, and Mac cellar workspaces.",
+      "description": "Private wine-cellar knowledge with label capture, CloudKit sync, and Mac cellar workspaces.",
+      "home": "https://1041soft.com/oenora/",
+      "support": "https://1041soft.com/oenora/",
+      "privacy": "https://1041soft.com/oenora/privacy",
+      "platform": "Apple platforms",
+      "homepage": false
+    },
+    {
+      "slug": "grubber",
+      "name": "Grubber",
+      "tagline": "Podcast-and-news intelligence platform: 1.3M transcribed words a week, topic analysis, a daily/weekly newsletter, an API, and MCP for AI assistants.",
+      "description": "Podcast-and-news intelligence platform: 1.3M transcribed words a week, topic analysis, a daily/weekly newsletter, an API, and MCP for AI assistants.",
+      "home": "https://1041soft.com/grubber/",
+      "support": "https://1041soft.com/grubber/support.html",
+      "privacy": "https://1041soft.com/grubber/privacy/",
+      "platform": "Apple platforms",
+      "homepage": false
+    },
+    {
+      "slug": "kinflash",
+      "name": "KinFlash",
+      "tagline": "Family-tree authoring, relationship flashcards, and portable GEDCOM export for preserving who is who.",
+      "description": "Family-tree authoring, relationship flashcards, and portable GEDCOM export for preserving who is who.",
+      "home": "https://1041soft.com/kinflash/",
+      "support": "https://1041soft.com/kinflash/support.html",
+      "privacy": "https://1041soft.com/kinflash/privacy.html",
+      "platform": "Apple platforms",
+      "homepage": false
+    },
+    {
+      "slug": "screenker",
+      "name": "Screenker",
+      "tagline": "Mac studio for composing, reviewing, and shipping App Store screenshots.",
+      "description": "Mac studio for composing, reviewing, and shipping App Store screenshots.",
+      "home": "https://1041soft.com/screenker/",
+      "support": "https://1041soft.com/screenker/",
+      "privacy": "https://1041soft.com/screenker/privacy",
+      "platform": "Apple platforms",
+      "homepage": false
+    },
+    {
+      "slug": "hoabooklet",
+      "name": "HOABooklet",
+      "tagline": "Roster to print-ready directory booklet and website for HOAs, condos, and clubs.",
+      "description": "Roster to print-ready directory booklet and website for HOAs, condos, and clubs.",
+      "home": "https://1041soft.com/hoabooklet/",
+      "support": "https://1041soft.com/hoabooklet/",
+      "privacy": "https://1041soft.com/hoabooklet/privacy",
+      "platform": "Apple platforms",
+      "homepage": false
+    },
+    {
+      "slug": "pfolio",
+      "name": "Pfoliolio",
+      "tagline": "Independent portfolio analysis for the money your advisers manage.",
+      "description": "Independent portfolio analysis for the money your advisers manage.",
+      "home": "https://1041soft.com/pfolio/",
+      "support": "https://1041soft.com/pfolio/",
+      "privacy": "https://1041soft.com/pfolio/privacy",
+      "platform": "Apple platforms",
+      "homepage": false
+    },
+    {
+      "slug": "picklefamilia",
+      "name": "PickleFamilia",
+      "tagline": "Weekly game scheduling and self-service player slot coordination.",
+      "description": "Weekly game scheduling and self-service player slot coordination.",
+      "home": "https://1041soft.com/picklefamilia/",
+      "support": "https://1041soft.com/picklefamilia/support.html",
+      "privacy": "https://1041soft.com/picklefamilia/privacy.html",
+      "platform": "Apple platforms",
+      "homepage": false
+    }
+  ]
+}

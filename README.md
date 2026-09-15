@@ -20,3 +20,14 @@ Plain static HTML, no build step. Edit and push; Pages serves it.
 Every privacy page carries a TODO block that must be answered from the shipping
 build before that app is submitted. They are deliberately not filled in with
 guesses — a privacy policy is a representation to users and to Apple.
+
+## Unified app portfolio (September 2026)
+
+1041Soft is the home for all apps, including AmenBeats, MURDL 16, 123 Words,
+100 Burfords, PickledBalls, and workinOn previously listed at BillDonner.com.
+`data/portfolio.json` shares descriptions and company URLs with the personal
+site's `build_apps.py --catalog ../1041soft-site/data/portfolio.json` workflow.
+Update the company HTML alongside the catalog when changing copy. Existing
+App Store IDs and TestFlight links are preserved; transfer alone does not imply
+that an app has been released. Support pages and policy text were carried over
+from their existing sources, with navigation and support contacts updated.

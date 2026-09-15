@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>How PickledBalls builds fair courts — the scheduling algorithm explained</title>
+<meta name="description" content="How PickledBalls turns a pile of players into fair, no-repeat-partner courts: a provably perfect Whist rotation, surgical rule repair, and a guarded polish pass — explained in plain English.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="PickledBalls">
+<meta property="og:title" content="How PickledBalls builds fair courts">
+<meta property="og:description" content="The scheduling algorithm explained in plain English: a provably perfect rotation, surgical rule repair, and educated trial and error.">
+<meta property="og:url" content="https://1041soft.com/pickledballs/how-scheduling-works.html">
+<meta property="og:image" content="https://1041soft.com/pickledballs/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="apple-touch-icon" href="https://1041soft.com/pickledballs/og-image.png">
+<style>
+  :root {
+    --bg: #f7f7f8;
+    --panel: #fff;
+    --ink: #111418;
+    --muted: #5a6068;
+    --accent: #E8534A;
+    --accent2: #3DB85A;
+    --line: #e6e7eb;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font: 17px/1.65 -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, system-ui, sans-serif;
+    color: var(--ink);
+    background: var(--bg);
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .container { max-width: 760px; margin: 0 auto; padding: 0 24px; }
+
+  header.hero {
+    padding: 56px 0 36px;
+    text-align: center;
+    background:
+      radial-gradient(ellipse at top, rgba(232,83,74,0.08), transparent 60%),
+      radial-gradient(ellipse at bottom, rgba(61,184,90,0.08), transparent 60%);
+  }
+  .hero .crumb { font-size: 15px; margin: 0 0 18px; }
+  .hero h1 {
+    font-size: 40px; line-height: 1.1; margin: 0 0 12px;
+    background: linear-gradient(120deg, var(--accent), var(--accent2));
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+    letter-spacing: -0.02em;
+  }
+  .hero p.lead { font-size: 18px; color: var(--muted); max-width: 640px; margin: 0 auto; }
+
+  article { padding: 24px 0 64px; }
+  article h2 {
+    font-size: 26px; letter-spacing: -0.01em; margin: 44px 0 12px;
+  }
+  article h2:first-child { margin-top: 8px; }
+  article p { margin: 0 0 16px; }
+  article ul, article ol { margin: 0 0 16px; padding-left: 26px; }
+  article li { margin-bottom: 8px; }
+  article strong { color: var(--ink); }
+
+  .callout {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-left: 4px solid var(--accent2);
+    border-radius: 12px;
+    padding: 16px 18px;
+    margin: 0 0 16px;
+    color: var(--muted);
+    font-size: 15.5px;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    overflow: hidden;
+    margin: 0 0 16px;
+    font-size: 15.5px;
+  }
+  th, td { text-align: left; padding: 12px 14px; border-bottom: 1px solid var(--line); }
+  th { background: #f0f1f4; font-size: 14px; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); }
+  tr:last-child td { border-bottom: none; }
+
+  .backcta { text-align: center; padding: 8px 0 56px; }
+  .cta {
+    display: inline-block; padding: 14px 28px; border-radius: 999px;
+    background: linear-gradient(90deg, var(--accent), var(--accent2));
+    color: #fff !important; font-weight: 600; font-size: 16px;
+    box-shadow: 0 8px 24px rgba(232,83,74,0.3);
+  }
+  .cta:hover { text-decoration: none; transform: translateY(-1px); transition: transform .15s; }
+
+  footer {
+    border-top: 1px solid var(--line);
+    padding: 28px 0 44px;
+    color: var(--muted);
+    font-size: 14px;
+    text-align: center;
+  }
+  @media (max-width: 600px) {
+    .hero h1 { font-size: 30px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="container">
+    <p class="crumb"><a href="index.html">← PickledBalls</a></p>
+    <h1>How PickledBalls builds fair courts</h1>
+    <p class="lead">The scheduling algorithm, explained in plain English — no math degree required.</p>
+  </div>
+</header>
+
+<article>
+  <div class="container">
+
+    <h2>The problem, in plain terms</h2>
+    <p>Imagine you're running a pickleball night: 16 players, 4 courts, 7 rounds. Everybody wants to:</p>
+    <ul>
+      <li>play <strong>with</strong> as many different partners as possible (nobody wants the same partner all night),</li>
+      <li>play <strong>against</strong> lots of different people,</li>
+      <li>rotate around the courts instead of being stuck on court 4,</li>
+      <li>sit out fairly, if anyone has to sit out at all,</li>
+      <li>and respect the rules you've set, like "Bill and Ted must always partner" or "Sue and Ann should never share a court."</li>
+    </ul>
+    <p>Doing this by hand with a clipboard falls apart fast. The number of possible schedules is astronomically large — for 16 players and 7 rounds there are more possibilities than atoms in the universe. The app can't try them all, so it uses a smarter three-step strategy: <strong>start from a mathematically perfect skeleton, surgically fix any rule violations, then polish.</strong></p>
+
+    <h2>Step 1: Start from a perfect pattern (the "Whist" rotation)</h2>
+    <p>There's a piece of 19th-century math, originally invented for whist card tournaments, that solves the partner-variety problem <em>exactly</em>. It's called the <strong>circle method</strong>, and you can picture it like this:</p>
+    <p>Put one player in the center of a circle and arrange everyone else around the ring. Draw lines to pair people up: the center player pairs with the person at the top of the ring, then each remaining person pairs with the person directly across from them. That's round 1. For round 2, keep the center player fixed and <strong>rotate the ring by one seat</strong>, then draw the same lines again. Keep rotating for each round.</p>
+    <div class="callout">The magic of this pattern is provable: <strong>no two players are ever partners twice</strong>. Not "rarely" — <em>never</em>, guaranteed by the geometry. For doubles, pairs of partnerships get grouped onto courts; for singles the same trick guarantees you never face the same opponent twice.</div>
+    <p>The app shuffles who sits where in the circle first (so every game night gets a different-looking schedule), but the underlying rotation keeps its guarantee.</p>
+    <p>While it deals out each round, the app also chooses <em>which court</em> each group lands on. For small games it literally tries every possible court arrangement (with 4 courts there are only 24 ways) and picks the one that keeps everyone's court visits most even. For big games (up to 24 courts) trying everything would be too slow, so it assigns groups one at a time, each to whichever court that player group has visited least — a "good enough, fast" version of the same idea.</p>
+
+    <h2>Step 2: Surgically repair any broken rules</h2>
+    <p>The perfect rotation doesn't know about your custom rules — "these two never partner," "keep those two on separate courts," "these two must start together." After dealing the skeleton, the app checks every round against every rule.</p>
+    <p>Here's the key insight that makes this fixable: <strong>every rule is local to a single round.</strong> If Sue and Ann ended up on the same court in round 3, that problem lives entirely inside round 3 — fixing it can't break round 5. So the repairer walks round by round, finds each violation, and performs a targeted swap: it looks for another player in that round who can trade places without creating a <em>new</em> violation, like rearranging seats at a dinner party so two feuding relatives aren't side by side. Because the Whist pattern spreads people around so thoroughly, violations are rare and there's almost always a safe swap available.</p>
+    <p>One rule gets special treatment: "must always partner." A permanent fixed pair fundamentally fights the rotation (which is designed to never repeat a partnership), so when you use that rule the app skips the Whist skeleton and builds the schedule a different way from scratch.</p>
+
+    <h2>Step 3: Polish with "simulated annealing" (educated trial and error)</h2>
+    <p>The schedule is now valid, but there's still room for improvement — court rotation could be smoother, matches could be more evenly rated. For this the app uses a classic technique called <strong>simulated annealing</strong>, named after the way blacksmiths strengthen metal by heating it and cooling it slowly.</p>
+    <ol>
+      <li><strong>Score the schedule.</strong> Every flaw adds penalty points: a repeated matchup costs points, uneven court rotation costs points, lopsided teams cost points (if you've entered player ratings), unfair sit-outs cost points. Lower score = better schedule.</li>
+      <li><strong>Try a small random change.</strong> Swap two players, trade two teams between courts, reorder two rounds.</li>
+      <li><strong>Keep it or undo it.</strong> If the change lowered the score, keep it. If it made things <em>worse</em>, sometimes keep it anyway — and here's why: always insisting on improvement gets you stuck, like hiking downhill in fog and stopping in the first small dip you find instead of reaching the valley floor. Accepting an occasional uphill step lets you escape the dip.</li>
+      <li><strong>Cool down.</strong> Early on ("hot"), the algorithm is adventurous and accepts lots of bad moves to explore. As thousands of tries go by, the "temperature" drops and it gets pickier, until at the end it only accepts genuine improvements. The cooling speed is matched to the time budget, so a quick schedule and a long one both finish properly "cold."</li>
+    </ol>
+    <p>Two hard boundaries are enforced during all this trial and error, like guardrails:</p>
+    <ul>
+      <li><strong>The perfection lock.</strong> Any random change that would break the Whist guarantee — creating a repeat partnership (doubles) or repeat opponent (singles) — is rejected instantly, no matter how much it would improve anything else. The mathematical guarantee from Step 1 survives the entire polish phase untouched.</li>
+      <li><strong>The rules lock.</strong> Same for your custom pairing rules: once Step 2 has everything satisfied, no random change that re-breaks a rule is ever accepted. This matters because at a big session (say, 96 players on 24 courts) the sheer volume of "variety" points could otherwise tempt the algorithm into sacrificing a rule for a shinier score.</li>
+    </ul>
+
+    <h2>The three flavors you can pick</h2>
+    <p>The scoring weights change depending on the mode you choose when creating a game:</p>
+    <table>
+      <tr><th>Mode</th><th>What the scoring emphasizes</th></tr>
+      <tr><td><strong>Random</strong></td><td>Maximum variety — different partners and opponents above all</td></tr>
+      <tr><td><strong>Seeded</strong></td><td>Groups players of similar skill onto the same courts (strong with strong)</td></tr>
+      <tr><td><strong>Balanced</strong></td><td>Every court has roughly the same <em>total</em> skill, so no court is a blowout</td></tr>
+    </table>
+    <p>An interesting subtlety: in Balanced mode, "make the courts equal in total strength" and "make each individual match close" quietly work <em>against</em> each other. Equal court totals mean putting a strong pair and a weak pair on the same court — which is exactly a lopsided match. When the two goals were weighted almost equally they canceled out and the algorithm just drifted. Letting court balance clearly dominate fixed it: the schedules it produces now match what a brute-force search proves is the best possible grouping.</p>
+
+    <h2>When your rules are simply impossible</h2>
+    <p>If you write contradictory rules (say, enough "never" constraints that no valid arrangement exists), no algorithm can satisfy them. The app doesn't pretend otherwise and doesn't throw your schedule away: it hands back the <strong>best attempt</strong> with a warning banner telling you some rules couldn't be honored, and you decide whether to play it or loosen a rule.</p>
+
+    <h2>Why this design instead of just "shuffle and pray"?</h2>
+    <p>Pure random shuffling gives you repeat partners by round 3 — with 16 players, chance alone practically guarantees it. Pure trial-and-error polishing <em>without</em> the perfect skeleton would need millions of tries to stumble into what the circle method hands us for free. And trusting penalty points alone to protect your custom rules fails at scale, because a mountain of small variety bonuses can outweigh one big rule penalty.</p>
+    <p>The three-step combination — <strong>provably perfect skeleton → targeted repair → guarded polish</strong> — gets the best of all worlds: mathematical guarantees where math can give them, deterministic fixes where rules are concerned, and a few seconds of educated tinkering for everything that's merely "nice to have." All of it runs on your phone, off the main thread, in about two and a half seconds even for a 24-court session — so when you hit <strong>GO!</strong>, the schedule is just <em>there</em>.</p>
+
+  </div>
+</article>
+
+<div class="backcta">
+  <a class="cta" href="index.html">← Back to PickledBalls</a>
+</div>
+
+<footer>
+  <div class="container">
+    <p>PickledBalls — built by Bill Donner. <a href="mailto:bill@1041soft.com">bill@1041soft.com</a></p>
+    <p><a href="index.html">Home</a> · <a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a></p>
+  </div>
+</footer>
+
+</body>
+</html>
