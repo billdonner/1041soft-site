@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-14",
+  "updated": "2026-09-23",
   "apps": [
     {
       "slug": "amenbeats",
@@ -15,12 +15,12 @@
     {
       "slug": "murdl",
       "name": "MURDL 16",
-      "tagline": "Guess five-letter words on 2, 4, 8, or 16 boards at once. Three modes, a score book, and full keyboard play, built for the Mac.",
+      "tagline": "Guess five-letter words on 1, 2, 4, 8, or 16 boards at once. Three modes, a score book, and full keyboard play across iPhone, iPad, and Mac.",
       "description": "MURDL is the five-letter word game for people who find one board too easy. Every guess you type is played on every board at once, and each board has its own five-letter answer. Solve them all before the guesses run out.\n\nChoose your challenge: 2, 4, 8, or 16 boards. You always get five more guesses than boards, so the classic 8-board game gives you 13 guesses, and 16 boards gives you 21. Boards stop taking guesses once they are solved, so every word you play has to work for the boards still open.\n\nThree ways to play. Classic keeps the clock off screen. Stopwatch counts up from your first keystroke and keeps your fastest win at every board count. Sprint counts down from 45 seconds per board, adds 10 seconds for every board you solve, and takes away every unfinished board when it reaches zero. In both timed modes the clock waits for your first keystroke and pauses while Help is open, so you can study the boards before you start.\n\nBuilt for the Mac. Type on your real keyboard from any window. The on-screen keyboard is a small floating window that shows the best result each letter has earned on any board; close it if you do not need it, and MURDL remembers where you put it. Every action has a menu item and a keyboard shortcut, so the whole game can be played without touching the mouse.\n\nSee the boards your way. A grid of up to eight boards per row, or one long horizontal strip. Scroll with a trackpad swipe, a scroll wheel, or the arrow keys, which step a highlight from board to board and keep it in view.\n\nKeep score. Every finished game is recorded with its result, score, guesses used, and time. The Scores window shows games played, win percentage, current and best streaks, best score, and best time. Helper Mode, which plays the next unfinished board's answer for you, is recorded as assisted and never counts as a win.\n\nNo account, no ads, no network. Your games stay on your Mac.",
       "home": "https://1041soft.com/murdl/",
       "support": "https://1041soft.com/murdl/#support",
       "privacy": "https://1041soft.com/murdl/privacy/",
-      "platform": "Mac",
+      "platform": "iPhone · iPad · Mac",
       "homepage": false
     },
     {
@@ -75,7 +75,7 @@
       "home": "https://1041soft.com/qross/",
       "support": "https://1041soft.com/qross/support.html",
       "privacy": "https://1041soft.com/qross/privacy.html",
-      "platform": "Apple platforms",
+      "platform": "iPhone · iPad",
       "homepage": false
     },
     {
