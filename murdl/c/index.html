@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MURDL Challenge — 1041Soft</title><meta name="description" content="A friend sent you a MURDL challenge: the same boards, their score to beat.">
+<meta name="robots" content="noindex"><link rel="stylesheet" href="/style.css"></head>
+<body><header class="site-header"><a class="brand" href="/">1041Soft</a><nav class="site-nav" aria-label="Primary"><a href="/murdl/">MURDL</a><a href="/murdl/privacy/">Privacy</a></nav></header>
+<main class="wrap"><section class="section">
+<p class="kicker">MURDL 16 · iPhone · iPad · Mac</p>
+<h1 id="title">You've been challenged</h1>
+<p class="lede">A friend played a game of MURDL and sent you the same boards. Open it in MURDL to see the score to beat, play it, and send your result back.</p>
+<div class="hero-actions"><a class="button" id="open" href="murdl://">Open in MURDL</a></div>
+<p id="missing" hidden>This link is incomplete. Ask your friend to send it again.</p>
+<p>Don't have MURDL yet? <a href="https://apps.apple.com/us/app/murdl-16/id6809919090">Get MURDL 16 on the App Store</a>, then come back and tap Open in MURDL.</p>
+<p>The challenge lives entirely in the link: there is no account and no server, and nothing is stored here. Challenges need MURDL Multiplayer, a one-time in-app purchase.</p>
+</section></main>
+<footer class="wrap site-footer">© 2026 1041Soft · <a href="/murdl/">MURDL 16</a></footer>
+<script>
+  var code = location.hash.replace(/^#/, "");
+  if (/^[A-Za-z0-9_-]{20,}$/.test(code)) {
+    document.getElementById("open").href = "murdl://c/" + code;
+  } else {
+    document.getElementById("open").hidden = true;
+    document.getElementById("missing").hidden = false;
+  }
+</script>
+</body></html>
