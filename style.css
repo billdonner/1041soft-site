@@ -392,3 +392,55 @@ footer:not(.site-footer){margin-top:3.5rem;border-top:1px solid var(--line)}
 .data-table th,.data-table td{border-bottom:1px solid var(--line);padding:.45rem 1.25rem .45rem 0;text-align:left}
 .data-table th{color:var(--muted);font-weight:600}
 .data-table td:last-child,.data-table th:last-child{text-align:right;padding-right:0}
+
+/* Screenker product page */
+.screenker-page{background:#eef1ed}
+.screenker-hero{background:#111a22;color:#f7faf9;overflow:hidden}
+.screenker-hero-grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(22rem,.95fr);align-items:center;gap:clamp(2rem,6vw,6rem);min-height:40rem;padding-top:4.5rem;padding-bottom:4.5rem}
+.screenker-hero-copy{position:relative;z-index:1}
+.screenker-hero .eyebrow,.screenker-mcp .eyebrow,.screenker-cta .eyebrow{color:#79d1cc}
+.screenker-hero h1{max-width:11ch;font-size:clamp(3rem,6.2vw,5.8rem);line-height:.92;letter-spacing:-.045em;margin:0}
+.screenker-hero .lede{max-width:37rem}
+.screenker-small{color:#b9c5c2;font-size:.9rem;margin:1rem 0 0}
+.screenker-hero-shot{margin:0;transform:rotate(3deg);filter:drop-shadow(0 2rem 3rem rgba(0,0,0,.38))}
+.screenker-hero-shot img{border:1px solid rgba(255,255,255,.16);border-radius:.8rem}
+.screenker-proof{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--line);border-left:1px solid var(--line);border-right:1px solid var(--line)}
+.screenker-proof div{background:var(--panel);padding:1.25rem}
+.screenker-proof b{display:block;font-size:1rem;margin-bottom:.35rem}
+.screenker-proof span{color:var(--muted);font-size:.92rem;line-height:1.45}
+.screenker-section{padding-top:5.25rem;padding-bottom:1rem}
+.screenker-steps{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.8rem;list-style:none;padding:0;margin:0}
+.screenker-steps li{display:grid;gap:.45rem;padding:1.3rem;background:var(--panel-strong);border:1px solid var(--line);border-radius:8px}
+.screenker-steps b{font-size:1.05rem}
+.screenker-steps span{color:var(--muted)}
+.screenker-mcp{margin-top:5.25rem;background:#103b3e;color:#effaf8}
+.screenker-mcp-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(18rem,.9fr);gap:clamp(2rem,6vw,6rem);align-items:center;padding-top:5rem;padding-bottom:5rem}
+.screenker-mcp h2,.screenker-cta h2{font-size:clamp(2.25rem,4vw,3.75rem);line-height:1;letter-spacing:-.035em;margin:.2rem 0 1rem;max-width:14ch}
+.screenker-mcp p{color:#c7e3df;max-width:40rem}
+.screenker-checks{margin:1.5rem 0 0;padding:0;list-style:none}
+.screenker-checks li{padding:.65rem 0 .65rem 1.5rem;border-top:1px solid rgba(255,255,255,.18);position:relative}
+.screenker-checks li:before{content:"✓";position:absolute;left:0;color:#8fe1d9;font-weight:800}
+.screenker-feature-shot{margin:0}
+.screenker-feature-shot img{border-radius:.7rem;border:1px solid rgba(255,255,255,.22);box-shadow:var(--shadow)}
+.screenker-feature-shot figcaption,.screenker-gallery figcaption{color:var(--muted);font-size:.88rem;line-height:1.45;margin-top:.65rem}
+.screenker-mcp figcaption{color:#b7d5d0}
+.screenker-feature-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:.8rem}
+.screenker-feature-grid article{border-top:3px solid var(--accent);background:var(--panel-strong);padding:1.1rem;border-radius:0 0 8px 8px}
+.screenker-feature-grid h3{font-size:1.05rem;line-height:1.15;margin:0 0 .55rem}
+.screenker-feature-grid p{color:var(--muted);font-size:.94rem;line-height:1.48;margin:0}
+.screenker-gallery{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem;margin-top:1rem}
+.screenker-gallery figure{margin:0;background:var(--panel-strong);padding:.65rem;border:1px solid var(--line);border-radius:8px}
+.screenker-gallery img{border-radius:4px}
+.screenker-cta{margin-top:5rem;background:linear-gradient(120deg,#0b6f73,#174c67);color:#fff;padding-top:5rem;padding-bottom:5rem}
+.screenker-cta p:not(.eyebrow):not(.screenker-small){color:#d5f1ef;max-width:43rem;font-size:1.12rem}
+.screenker-cta .button{background:#fff;color:#084f53;border-color:#fff}
+.screenker-cta .screenker-small{color:#d5f1ef}
+.screenker-cta .screenker-small a{color:#fff}
+@media(max-width:720px){
+  .screenker-hero-grid,.screenker-mcp-grid{grid-template-columns:1fr;min-height:auto;padding-top:3.5rem;padding-bottom:3.5rem}
+  .screenker-hero-shot{max-width:31rem;transform:rotate(1.5deg);margin-left:auto}
+  .screenker-proof,.screenker-steps,.screenker-feature-grid,.screenker-gallery{grid-template-columns:1fr}
+  .screenker-section{padding-top:3.75rem}
+  .screenker-mcp{margin-top:3.75rem}
+  .screenker-cta{margin-top:3.75rem;padding-top:3.75rem;padding-bottom:3.75rem}
+}
