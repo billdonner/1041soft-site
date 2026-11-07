@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Privacy Policy — PickledBalls</title>
+<title>Privacy Policy — PickleFamilia Companion</title>
 <style>
   :root {
     --bg: #f7f7f8;
@@ -34,47 +34,52 @@
 </head>
 <body>
 <div class="container">
-  <a class="back" href="/">← PickledBalls</a>
+  <a class="back" href="/pickledballs/">← PickleFamilia Companion</a>
   <h1>Privacy Policy</h1>
-  <p class="updated">Last updated: May 13, 2026</p>
+  <p class="updated">Last updated: November 4, 2026</p>
 
-  <p>PickledBalls (the "App") is operated by 1041Soft. This policy explains what data the App collects, why, and the choices you have.</p>
+  <p>PickleFamilia Companion (the "App") is operated by 1041Soft. This policy explains what data the App collects, why, and the choices you have.</p>
 
   <h2>What we collect</h2>
-  <p><strong>Local-only data.</strong> Player names, ratings, notes, schedules, games, and audit logs you create stay on your device in iOS Documents storage. None of it is sent to our servers unless you sign in to PickledBalls and explicitly create or share a session there.</p>
-  <p><strong>Account data.</strong> If you create a PickledBalls account, we store your email (or Apple-relay email), display name, and a hashed password (or Apple identity link). This is the minimum needed to sign you in and route check-in pushes.</p>
-  <p><strong>Sessions and occurrences.</strong> When you create a session on PickledBalls, we store the session template, dated occurrences, roster snapshot, and per-player check-in state on our servers so they can be shared with verified players and routed via APNs.</p>
-  <p><strong>Push notification tokens.</strong> When you enable push notifications, your device's APNs token is stored against your account so the server can deliver check-in reminders. Tokens are cleared on sign-out.</p>
-  <p><strong>Subscription state.</strong> StoreKit verifies subscriptions on your device. We do not store credit card numbers or Apple ID — only the entitlement state (Free / Organizer / Instructor).</p>
+  <p><strong>Local-only data.</strong> The players, games, rounds, scores and notes you create for pickup games stay on your device. None of it is sent anywhere unless you share a club (below). The court scheduler is on-device math; no AI, no cloud.</p>
+  <p><strong>Sharing a free club.</strong> A free club is a list of players on your phone. If you tap Share, the App sends the club's name, its game, and each player's name and rating (if you keep one) to the PickleFamilia service, which keeps them under a private link. No phone numbers or emails are sent, and no account is made. Anyone you give the link to can see and edit the list. A new link stops the old one working; Stop sharing deletes the list from the service, and a list nobody opens for a year is deleted.</p>
+  <p><strong>Club sign-in.</strong> If you are a member of a club that runs on PickleFamilia and you sign in, the App sends your mobile number to that club's PickleFamilia service, which texts you a one-time code. Your number is already on the club's roster; the service stores it encrypted, and it is what the club texts you on. The session token is kept in your device's keychain and cleared when you sign out or delete the App.</p>
+  <p><strong>Club data.</strong> Once signed in, the App reads and writes your club data on the PickleFamilia service: the days you can play, the games you are seated on, courts recorded by bookers, the club's roster and published schedule, and the messages you exchange with the club. A message you send the club is read by an AI model (Claude, from Anthropic) so the service can act on it, such as recording the days you asked for; it is sent to Anthropic for that reading only. Admins and bookers also read and write the club's settings, venue and closed days. This data belongs to the club and is kept for the club's operation.</p>
+  <p><strong>Push notifications.</strong> If you allow notifications after signing in, your device's APNs token is registered with the PickleFamilia service so your club can reach you (a game tomorrow, a court needed, a reply). The token is removed when you sign out.</p>
+  <p><strong>Calendar.</strong> "Add to Calendar" writes that one game to your calendar, only when you tap it.</p>
+  <p><strong>Local network.</strong> "Listen" and running a game with others nearby use Bonjour on the Wi‑Fi in the room to show court assignments and scores between phones. Player names are shared between those phones only; nothing leaves the local network.</p>
 
   <h2>What we don't collect</h2>
   <ul>
+    <li>No account is created for pickup games; there is no email, password or Apple ID sign-in.</li>
     <li>We do not sell or share your data with advertisers.</li>
     <li>We do not track you across other apps or websites.</li>
     <li>We do not collect location data.</li>
     <li>We do not record analytics events that identify you personally.</li>
+    <li>There are no purchases in the App.</li>
   </ul>
 
   <h2>Third-party services</h2>
   <ul>
-    <li><strong>Apple StoreKit</strong> processes all subscription payments. Apple's privacy policy applies to those transactions.</li>
-    <li><strong>Apple Push Notification service (APNs)</strong> delivers check-in reminders if you opt in.</li>
-    <li><strong>Apple Sign in with Apple</strong> (optional) — uses Apple's relay email if you choose to hide your real address.</li>
-    <li><strong>clubsync.app</strong> publishes pickleball schedules harvested from public LifeTime pages. Your queries are not associated with your identity.</li>
+    <li><strong>Apple Push Notification service (APNs)</strong> delivers club notifications if you opt in.</li>
+    <li><strong>Anthropic</strong> reads the messages you send your club (by text or in the App) so the service can act on them. Anthropic does not use them to train its models.</li>
+    <li><strong>Twilio</strong> carries the club's text messages, including the sign-in code, on behalf of the PickleFamilia service.</li>
+    <li><strong>Fly.io</strong> hosts the PickleFamilia service.</li>
   </ul>
 
   <h2>Your rights</h2>
   <ul>
-    <li><strong>Export.</strong> PickledBalls accounts can request a full data export at any time (Settings → Account → Export).</li>
-    <li><strong>Delete.</strong> Account deletion is irreversible and removes server-side data within 30 days.</li>
-    <li><strong>Local data.</strong> Uninstalling the App deletes all on-device data.</li>
+    <li><strong>Local data.</strong> Deleting the App deletes all on-device data and signs you out.</li>
+    <li><strong>Delete your account.</strong> In the App, Settings → Delete my account. This removes you from every club on the PickleFamilia service at once and deletes your mobile number, your push registration, your sign-ins and the messages you sent. Your clubs keep their past schedules and court records, with your name replaced by "A former member". If you are the only admin of a club, hand it to another member first. A request to stop texts (STOP) for your number is kept, as carriers require.</li>
+    <li><strong>Club data.</strong> Your club's admin can also remove you from the club, which stops all texts and notifications. You can also write to us at the address below.</li>
+    <li><strong>Sign out.</strong> Settings → Sign out of your Collective clears the session and the push registration.</li>
   </ul>
 
   <h2>Children</h2>
-  <p>PickledBalls is not directed at children under 13. We do not knowingly collect data from children under 13.</p>
+  <p>PickleFamilia Companion is not directed at children under 13. We do not knowingly collect data from children under 13.</p>
 
   <h2>Who we are</h2><p>This app is published by 1041Soft LLC, an Illinois limited liability company (Wilmette, Illinois). 1041Soft LLC is the developer of record on the App Store and the party responsible for this policy.</p>
-<h2>Contact</h2>
+  <h2>Contact</h2>
   <p>Questions: <a href="mailto:bill@1041soft.com">bill@1041soft.com</a></p>
 </div>
 </body>

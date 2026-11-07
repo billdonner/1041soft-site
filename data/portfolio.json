@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-23",
+  "updated": "2026-11-06",
   "apps": [
     {
       "slug": "amenbeats",
@@ -47,9 +47,9 @@
     },
     {
       "slug": "pickledballs",
-      "name": "PickledBalls",
-      "tagline": "Run a whole pickleball session from your phone — balanced courts, pair rules enforced.",
-      "description": "PickledBalls turns a pile of players into fair, balanced courts in seconds. Pick who's here, tap once, and start playing — no account, no setup, no clipboard.\n\n**Start a game in under 30 seconds**\nChoose your players, pick the sport, set courts and rounds, and go. New Game drops you straight into a ready-to-play schedule. Close the app mid-session and pick up exactly where you left off.\n\n**Courts that are actually balanced**\nA Whist-based optimizer tracks every partnership and court visit across rounds, so nobody gets stuck with the same partner twice and every court stays evenly loaded. Random pairing is free. Want courts matched to your group's levels? **Organizer Pro** adds skill-based scheduling — Seeded (strong with strong) and Balanced (snake-draft by each player's own DUPR/UTR-style rating).\n\n**Pair Rules — set once, honored everywhere**\nMark any two players as Never Partners, Always Partners, or Never Same Court. The scheduler obeys every rule automatically, every round. No manual fiddling.\n\n**Run the whole thing from your phone**\nExpand any round to see the matchups. Swap players in this round or a future one with a tap. Jot per-round notes. Start the built-in timer with a one-minute warning. Enter scores as you go — or don't; lineups are always saved. Everything survives closing the app. Free runs up to 3 courts; Organizer Pro runs up to 24 at once.\n\n**Everyone sees their court — live, on their own phone**\nPlaying instead of running the show? Set yourself as a Player and type your name once. The organizer's court assignments and scores show up live on your phone as the game unfolds. No more crowding around one screen between rounds. It all happens over the local network in the room: no account, no sign-up, nothing leaves your devices.\n\n**Paper-friendly score sheets**\nPrint each round with score boxes, let players write scores court-side, then scan the filled sheet with the camera — PickledBalls reads the scores and you review each one before it's saved.\n\n**Plan next week by just saying it**\nForward Schedule keeps upcoming reservations and player changes straight: type it, tap it, or speak it — \"Dana's out Thursday, add Rick\" — and the plan updates itself, all on your device.\n\n**Look back at every game**\nPast games and results are kept on-device so you can see how the night went.\n\n**Pickleball, tennis, and ping pong** — singles or doubles, your choice per game.\n\n**No AI in the free app.** Your courts are built by fast, private, on-device math — no artificial intelligence, no cloud, nothing sent anywhere. Optional voice input is transcribed on-device by Apple's speech engine. (An optional plain-language AI assistant is planned only as a later paid upgrade — never part of the free app.)\n\n**No account, ever.** Free runs games up to 3 courts. Organizer Pro — bigger sessions (up to 24 courts) and schedule-by-skill — is free right now.",
+      "name": "PickleFamilia Companion",
+      "tagline": "Fair courts for pickup games, and a free club that is just your roster.",
+      "description": "PickleFamilia Companion is free on the App Store for iPhone and iPad: https://apps.apple.com/us/app/picklefamilia-companion/id6762310890\n\n**On Court: fair rounds, every time**\nAnyone can run a game. Open your club and tap Start games, or pick whoever showed up. The Companion builds the pairings so nobody partners twice until everyone has, and extras rotate fairly. Run the rounds, start the built-in timer, and enter scores as you go.\n\n**Listen: see your court live**\nPlayers tap Listen, and their court and score show up on their own phone as the game unfolds, over the Wi‑Fi in the room.\n\n**Your club, free**\nYour roster is your club. Name it and add your players; it gets its own tab, and every game starts from it. Share it with a link so your other organizers keep the same list on their phones: names and ratings only, never phone numbers. Free forever.\n\n**Pickleball, tennis, and ping pong** — singles or doubles, your choice per game.\n\n**No account.** Your players and games stay on your device. The court scheduler is on-device math: no AI, no cloud.\n\nMore at https://picklefamilia.com",
       "home": "https://1041soft.com/pickledballs/",
       "support": "https://1041soft.com/pickledballs/support.html",
       "privacy": "https://1041soft.com/pickledballs/privacy.html",
@@ -147,8 +147,8 @@
     {
       "slug": "picklefamilia",
       "name": "PickleFamilia",
-      "tagline": "Weekly game scheduling and self-service player slot coordination.",
-      "description": "Weekly game scheduling and self-service player slot coordination.",
+      "tagline": "The PickleFamilia family of pickleball tools. Its iPhone app, PickleFamilia Companion, is free on the App Store.",
+      "description": "The PickleFamilia family of pickleball tools: fair courts On Court and a free club that is just your roster. Its iPhone app, PickleFamilia Companion, is free on the App Store. More at https://picklefamilia.com",
       "home": "https://1041soft.com/picklefamilia/",
       "support": "https://1041soft.com/picklefamilia/support.html",
       "privacy": "https://1041soft.com/picklefamilia/privacy.html",
