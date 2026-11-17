@@ -424,7 +424,7 @@ footer:not(.site-footer){margin-top:3.5rem;border-top:1px solid var(--line)}
 .screenker-feature-shot img{border-radius:.7rem;border:1px solid rgba(255,255,255,.22);box-shadow:var(--shadow)}
 .screenker-feature-shot figcaption,.screenker-gallery figcaption{color:var(--muted);font-size:.88rem;line-height:1.45;margin-top:.65rem}
 .screenker-mcp figcaption{color:#b7d5d0}
-.screenker-feature-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:.8rem}
+.screenker-feature-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.8rem}
 .screenker-feature-grid article{border-top:3px solid var(--accent);background:var(--panel-strong);padding:1.1rem;border-radius:0 0 8px 8px}
 .screenker-feature-grid h3{font-size:1.05rem;line-height:1.15;margin:0 0 .55rem}
 .screenker-feature-grid p{color:var(--muted);font-size:.94rem;line-height:1.48;margin:0}
